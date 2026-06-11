@@ -81,7 +81,7 @@ const jsonLd = [webPage({ name: r.title, description: r.description, url: `https
       {BUSINESS_NAME}<br />
       {ADDRESS.street}<br />
       {ADDRESS.city}, {ADDRESS.region} {ADDRESS.postal}<br />
-      <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      <!--email_off--><a href={`mailto:${EMAIL}`}>{EMAIL}</a><!--/email_off-->
     </address>
   </article>
 </Base>

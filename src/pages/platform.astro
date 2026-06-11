@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CTARow from "../components/CTARow.astro";
 import { findRoute } from "../lib/seo/routes";
-import { softwareApplication, webPage, breadcrumbList } from "../lib/seo/jsonld";
+import { service, webPage, breadcrumbList } from "../lib/seo/jsonld";
 
 const r = findRoute("/platform")!;
 const crumbs = [
@@ -12,11 +12,11 @@ const crumbs = [
 ];
 const breadcrumb = breadcrumbList(crumbs);
 const jsonLd = [
-  softwareApplication({
-    name: "Benefit Builder Platform",
+  service({
+    name: "Benefit Builder Administration Platform",
     description: r.description,
     url: `https://benefitbuilderllc.com${r.path}`,
-    applicationCategory: "BusinessApplication",
+    serviceType: "Section 125 benefits administration platform",
   }),
   webPage({ name: r.title, description: r.description, url: `https://benefitbuilderllc.com${r.path}`, breadcrumb }),
   breadcrumb,

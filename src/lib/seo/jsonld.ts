@@ -88,7 +88,6 @@ export function financialService(): JsonLd {
       addressCountry: ADDRESS.country,
     },
     areaServed: SERVICE_AREA,
-    provider: { "@id": `${SITE_URL}/#organization` },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Benefit Builder Services",

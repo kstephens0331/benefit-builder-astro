@@ -64,7 +64,7 @@ const jsonLd = [webPage({ name: r.title, description: r.description, url: `https
       Protection Regulation (GDPR), or similar laws, including the right to access, correct, or delete personal data we
       hold about you, and the right to opt out of the sale or sharing of personal information. We do not sell personal information.
     </p>
-    <p>To exercise these rights, contact us at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.</p>
+    <p>To exercise these rights, contact us at <!--email_off--><a href={`mailto:${EMAIL}`}>{EMAIL}</a><!--/email_off-->.</p>
 
     <h2>Data retention</h2>
     <p>
@@ -84,7 +84,7 @@ const jsonLd = [webPage({ name: r.title, description: r.description, url: `https
       {BUSINESS_NAME}<br />
       {ADDRESS.street}<br />
       {ADDRESS.city}, {ADDRESS.region} {ADDRESS.postal}<br />
-      <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      <!--email_off--><a href={`mailto:${EMAIL}`}>{EMAIL}</a><!--/email_off-->
     </address>
   </article>
 </Base>
