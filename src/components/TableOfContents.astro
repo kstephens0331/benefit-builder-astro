@@ -1,0 +1,60 @@
+---
+import type { Heading } from "../lib/blog/markdown";
+interface Props {
+  headings: Heading[];
+}
+const { headings } = Astro.props;
+---
+
+{
+  headings.length > 0 && (
+    <nav aria-label="Table of contents" class="text-sm">
+      <div class="mb-2 font-semibold text-brand-navy">On this page</div>
+      <ul class="space-y-1.5">
+        {headings.map((h) => (
+          <li class={h.depth === 3 ? "ml-3" : ""}>
+            <a
+              href={`#${h.id}`}
+              data-toc-id={h.id}
+              class="toc-link block border-l-2 border-brand-stone pl-3 text-brand-charcoal/70 transition hover:text-brand-navy"
+            >
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<script>
+  // Scroll-spy: highlight the table-of-contents link whose heading is in view.
+  const links = Array.from(document.querySelectorAll(".toc-link"));
+  if (links.length) {
+    const activeCls = ["border-brand-green", "font-medium", "text-brand-green"];
+    const idleCls = ["border-brand-stone", "text-brand-charcoal/70"];
+    const byId = new Map(links.map((l) => [l.getAttribute("data-toc-id"), l]));
+    let current = "";
+    function setActive(id) {
+      if (id === current) return;
+      current = id;
+      for (const l of links) {
+        l.classList.remove(...activeCls);
+        l.classList.add(...idleCls);
+      }
+      const a = byId.get(id);
+      if (a) {
+        a.classList.remove(...idleCls);
+        a.classList.add(...activeCls);
+      }
+    }
+    const headings = links.map((l) => document.getElementById(l.getAttribute("data-toc-id"))).filter(Boolean);
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+      },
+      { rootMargin: "0px 0px -70% 0px" }
+    );
+    headings.forEach((h) => io.observe(h));
+  }
+</script>

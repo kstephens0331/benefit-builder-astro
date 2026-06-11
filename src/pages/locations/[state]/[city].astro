@@ -1,0 +1,170 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import CTARow from "../../../components/CTARow.astro";
+import ResponsiveImage from "../../../components/ResponsiveImage.astro";
+import { service, webPage, breadcrumbList, faqPage, localBusinessInCity } from "../../../lib/seo/jsonld";
+import {
+  CITIES,
+  getCity,
+  getState,
+  cityTitle,
+  heroImageFor,
+  heroAltFor,
+  bodyImageFor,
+  bodyAltFor,
+  type CityLoc,
+  type StateLoc,
+} from "../../../lib/locations/locations";
+import { getLocationBody } from "../../../lib/locations/content";
+import { federalMarginalRate, stateMarginalRate, FICA_TOTAL } from "../../../lib/tax/savings2026";
+
+export function getStaticPaths() {
+  return CITIES.map((c) => ({ params: { state: c.stateSlug, city: c.slug } }));
+}
+
+const REP_GROSS = 48000;
+function pct(n: number): string {
+  return `${(n * 100).toFixed(n * 100 >= 10 ? 1 : 2)}%`;
+}
+function cityFaq(c: CityLoc, s: StateLoc) {
+  const near = c.neighbors.length > 0 ? `, including ${c.neighbors.join(", ")}` : "";
+  return [
+    {
+      question: `Do you work with ${c.city} employers?`,
+      answer: `Yes. Benefit Builder administers Section 125 cafeteria plans for employers in ${c.city} and the surrounding ${c.county} area${near}.`,
+    },
+    {
+      question: `What does a Section 125 plan save a ${c.city} employer?`,
+      answer: `The employer avoids its 7.65% FICA payroll tax on every qualified pre-tax dollar, and employees avoid federal income tax and ${s.name} state income tax on the same dollars. The exact figure depends on pay and participation, so the fastest way to know is to run your roster on the savings calculator.`,
+    },
+    {
+      question: `Who handles the compliance and nondiscrimination testing?`,
+      answer: `Benefit Builder does. The plan document, adoption agreement, salary reduction agreements, annual nondiscrimination testing, payroll coordination, and audit-ready recordkeeping are all included in one monthly fee, so a ${c.city} employer does not take on the administration.`,
+    },
+    {
+      question: `Can our ${c.city} business keep its current insurance agent?`,
+      answer: `Yes. Agents and brokers keep 100% of their commissions. Benefit Builder runs the Section 125 administration and employee education, so the agent stays the agent of record without the plan work.`,
+    },
+    {
+      question: `How does ${s.name} state tax affect the savings?`,
+      answer: s.taxNote,
+    },
+    {
+      question: `How do we get started in ${c.city}?`,
+      answer: `Start with a short discovery call. We design the plan around your workforce and pay frequency, prepare the documents for signature, and run enrollment and the annual testing. Estimate your numbers first with the savings calculator, or request a quote and we will prepare a figure for your roster.`,
+    },
+  ];
+}
+
+const { state, city } = Astro.params;
+const c = getCity(state || "", city || "")!;
+const s = getState(state || "")!;
+const path = `/locations/${c.stateSlug}/${c.slug}`;
+const url = `https://benefitbuilderllc.com${path}`;
+const fed = federalMarginalRate(REP_GROSS);
+const st = stateMarginalRate(c.code, REP_GROSS);
+const employeeAvoided = FICA_TOTAL + fed + st;
+const faq = cityFaq(c, s);
+const body = getLocationBody(c.slug);
+
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "Service Areas", href: "/locations" },
+  { name: s.name, href: `/locations/${s.slug}` },
+  { name: c.city, href: path },
+];
+const breadcrumb = breadcrumbList(crumbs);
+const jsonLd = [
+  localBusinessInCity({ city: c.city, region: c.code, latitude: c.lat, longitude: c.lon, url }),
+  service({
+    name: `Section 125 Administration in ${c.city}, ${c.code}`,
+    description: c.metaDescription,
+    url,
+    serviceType: "Section 125 cafeteria plan administration",
+  }),
+  webPage({ name: cityTitle(c), description: c.metaDescription, url, breadcrumb }),
+  faqPage(faq),
+  breadcrumb,
+];
+---
+
+<Base title={cityTitle(c)} description={c.metaDescription} path={path} image={`/og/og-loc-${c.stateSlug}-${c.slug}.png`} preloadImage={heroImageFor(c.slug)} jsonLd={jsonLd}>
+  <Breadcrumbs crumbs={crumbs} />
+
+  <section class="relative overflow-hidden border-b border-brand-stone/60 min-h-[420px] flex items-center">
+    <img src={heroImageFor(c.slug)} alt={heroAltFor(c.slug)} loading="eager" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover object-center" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/35"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20 w-full">
+      <p class="text-sm uppercase tracking-wide text-white/80 font-semibold">{c.city}, {c.code}</p>
+      <h1 class="font-heading text-4xl md:text-5xl text-white drop-shadow mt-2">Section 125 Pre-Tax Benefits for {c.city} Employers</h1>
+      <p class="mt-4 max-w-3xl text-white/90 text-lg">{c.intro}</p>
+      <div class="mt-6">
+        <CTARow primaryLabel="Get a quote" primaryTo="/contact" secondaryTo="/savings-calculator" secondaryLabel="Estimate your savings" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border-y border-brand-stone">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-heading text-3xl text-brand-navy">Serving {c.city} and {c.county}</h2>
+      <p class="mt-4 max-w-3xl text-brand-charcoal/90">{c.localContext}</p>
+      {c.neighbors.length > 0 && <p class="mt-4 max-w-3xl text-brand-charcoal/90">We also work with employers in nearby {c.neighbors.join(", ")}.</p>}
+    </div>
+  </section>
+
+  <section class="bg-brand-sand/40 border-y border-brand-stone">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-heading text-3xl text-brand-navy">What a {c.city} employer saves</h2>
+      <p class="mt-4 max-w-3xl text-brand-charcoal/90">{s.taxNote}</p>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2">
+        <div class="rounded-lg border border-brand-stone bg-white p-6">
+          <div class="font-heading text-3xl text-brand-green">7.65%</div>
+          <p class="mt-2 text-brand-charcoal/90">Employer FICA payroll tax avoided on every qualified pre-tax dollar.</p>
+        </div>
+        <div class="rounded-lg border border-brand-stone bg-white p-6">
+          <div class="font-heading text-3xl text-brand-green">about {pct(employeeAvoided)}</div>
+          <p class="mt-2 text-brand-charcoal/90">
+            Combined tax a {c.city} employee avoids on a pre-tax dollar, illustrative for a single filer earning roughly $
+            {REP_GROSS.toLocaleString()}.
+          </p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-brand-charcoal/70">
+        Estimates assume single filing status with zero dependents. Run your real roster with the{" "}
+        <a class="text-brand-green underline" href="/savings-calculator">savings calculator</a>, or see the full{" "}
+        <a class="text-brand-green underline" href={`/locations/${s.slug}`}>{s.name} overview</a>.
+      </p>
+    </div>
+  </section>
+
+  {
+    body && (
+      <section class="bg-white border-y border-brand-stone">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
+          <ResponsiveImage src={bodyImageFor(c.slug)} alt={bodyAltFor(c.slug)} class="mb-8" width={1200} height={800} />
+          <div class="bb-prose" set:html={body} />
+        </div>
+      </section>
+    )
+  }
+
+  <section class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-heading text-3xl text-brand-navy">Common questions</h2>
+      <div class="mt-6 space-y-6 max-w-3xl">
+        {
+          faq.map((qa) => (
+            <div>
+              <h3 class="font-heading text-lg text-brand-navy">{qa.question}</h3>
+              <p class="mt-2 text-brand-charcoal/90">{qa.answer}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-8">
+        <CTARow primaryLabel="Get a tailored quote" primaryTo="/contact" secondaryTo="/services/employers" secondaryLabel="See how it works" />
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,150 @@
+---
+import Base from "../layouts/Base.astro";
+import CTARow from "../components/CTARow.astro";
+import ResponsiveImage from "../components/ResponsiveImage.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { findRoute } from "../lib/seo/routes";
+import { organization, localBusiness, webPage, breadcrumbList, person } from "../lib/seo/jsonld";
+
+const r = findRoute("/about")!;
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+];
+const breadcrumb = breadcrumbList(crumbs);
+const jsonLd = [
+  organization(),
+  person(),
+  localBusiness(),
+  webPage({ name: r.title, description: r.description, url: `https://benefitbuilderllc.com${r.path}`, breadcrumb }),
+  breadcrumb,
+];
+
+const accordion = [
+  { title: "Discovery: align on goals and workforce", body: "We start by understanding your organization: the plan you offer today, your goals, and the pressures your teams feel. This ensures every next step is grounded in your reality." },
+  { title: "Design: coverage that fits how people enroll", body: "We model options that balance coverage, participation, and cost, focusing on the benefits employees are most likely to use." },
+  { title: "Enrollment: plain language and guided choice", body: "Clear messaging and approachable education so employees can decide with confidence." },
+  { title: "Support: renewals, vendor reviews, compliance", body: "We stay engaged throughout the year to keep the experience simple and effective." },
+];
+---
+
+<Base title={r.title} description={r.description} path={r.path} image={r.ogImage} preloadImage="/images/benefit-builder-about.webp" jsonLd={jsonLd}>
+  <Breadcrumbs crumbs={crumbs} />
+
+  <section class="relative overflow-hidden border-b border-brand-stone/60 min-h-[360px]" aria-label="About hero">
+    <img src="/images/benefit-builder-about.webp" alt="" class="absolute inset-0 h-full w-full object-cover object-center" fetchpriority="high" decoding="async" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/25 to-transparent"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <h1 class="font-heading text-white drop-shadow text-4xl">About Benefit Builder</h1>
+      <p class="mt-3 max-w-3xl text-white/90 text-lg">We design benefits around people and measurable outcomes.</p>
+    </div>
+  </section>
+
+  <section class="bg-white border-b border-brand-stone" aria-label="Who we are">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-start">
+      <div>
+        <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Who We Are</p>
+        <h2 class="font-heading text-3xl text-brand-navy mt-2">Benefit strategy built around people and outcomes</h2>
+        <div class="prose prose-neutral max-w-none mt-5 text-brand-charcoal/90">
+          <p>
+            Benefit Builder helps employers strengthen benefits without unnecessary complexity. We combine clear
+            strategy, simple communication, and dependable support so teams feel cared for and leaders see measurable impact.
+          </p>
+          <p>
+            Our focus: help employees understand their choices and help organizations achieve predictable, sustainable
+            results, year after year.
+          </p>
+        </div>
+        <div class="mt-6">
+          <CTARow primaryLabel="Explore services" primaryTo="/services" secondaryTo="/contact" secondaryLabel="Talk to us" />
+        </div>
+      </div>
+      <div>
+        <ResponsiveImage src="/images/benefit-builder-about-1.webp" alt="Team collaborating in a bright office" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-sand/40 border-b border-brand-stone" aria-label="What sets us apart">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">What Sets Us Apart</p>
+      <h3 class="font-heading text-3xl text-brand-navy mt-2">Clarity, participation, and sustained value</h3>
+      <div class="mt-8 grid gap-8 md:grid-cols-3">
+        <div>
+          <div class="font-heading text-xl text-brand-navy">People-first communication</div>
+          <p class="mt-2 text-brand-charcoal/90">We translate plans into everyday language and deliver guidance when employees need it most.</p>
+        </div>
+        <div>
+          <div class="font-heading text-xl text-brand-navy">Adoption-focused design</div>
+          <p class="mt-2 text-brand-charcoal/90">We tailor options employees will actually use, supporting confidence and participation.</p>
+        </div>
+        <div>
+          <div class="font-heading text-xl text-brand-navy">Operational follow-through</div>
+          <p class="mt-2 text-brand-charcoal/90">Enrollment, renewals, vendor reviews, and compliance check-ins, handled with care.</p>
+        </div>
+      </div>
+      <div class="mt-8">
+        <CTARow primaryLabel="See our approach" primaryTo="/services#video" secondaryTo="/contact" secondaryLabel="Request a quick call" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border-b border-brand-stone" aria-label="How we work with you">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-start">
+      <div class="order-2 md:order-1">
+        <h3 class="font-heading text-3xl text-brand-navy">How we work with you</h3>
+        <div class="mt-6 grid gap-4">
+          {
+            accordion.map((a) => (
+              <details class="group rounded-xl border border-brand-stone bg-white open:shadow-sm">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4">
+                  <span class="font-semibold text-brand-charcoal">{a.title}</span>
+                  <svg class="h-5 w-5 text-brand-green transition-transform group-open:rotate-45" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M9 3h2v14H9z" />
+                    <path d="M3 9h14v2H3z" />
+                  </svg>
+                </summary>
+                <div class="px-5 pb-5 text-brand-charcoal/90">{a.body}</div>
+              </details>
+            ))
+          }
+        </div>
+        <div class="mt-8">
+          <CTARow primaryLabel="Start the conversation" primaryTo="/contact" secondaryTo="/services" secondaryLabel="See services" />
+        </div>
+      </div>
+      <div class="order-1 md:order-2">
+        <ResponsiveImage src="/images/benefit-builder-about-2.webp" alt="Team collaborating in a bright office" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-sand/30 border-y border-brand-stone" aria-label="Team and ethos">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-5 items-center">
+      <div class="md:col-span-3">
+        <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Our Ethos</p>
+        <h2 class="font-heading text-3xl text-brand-navy mt-2">Practical, transparent, accountable</h2>
+        <p class="mt-4 text-brand-charcoal/90">
+          We believe benefits should reduce friction, not add to it. That means practical guidance, transparent options,
+          and accountability you can feel at each step.
+        </p>
+        <div class="mt-6">
+          <CTARow primaryLabel="Meet us" primaryTo="/contact" secondaryTo="/services#video" secondaryLabel="Watch the overview" />
+        </div>
+      </div>
+      <div class="md:col-span-2">
+        <ResponsiveImage src="/images/home-lower-1.webp" alt="Leaders collaborating in a modern space" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-navy" aria-label="Final call to action">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h2 class="font-heading text-2xl text-white">Ready to align benefits with growth?</h2>
+        <p class="text-white/85 mt-1">We will tailor everything to your goals and workforce.</p>
+      </div>
+      <div><CTARow primaryLabel="Contact Us" primaryTo="/contact" /></div>
+    </div>
+  </section>
+</Base>

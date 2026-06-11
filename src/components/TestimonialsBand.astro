@@ -1,0 +1,19 @@
+---
+const quotes = [
+  { q: "Clear guidance and real savings--our team finally understands their benefits.", a: "HR Director, Healthcare" },
+  { q: "Better coverage and lower costs made recruiting noticeably easier.", a: "COO, Manufacturing" },
+];
+---
+
+<section class="bg-white border-y border-brand-stone" aria-label="Testimonials">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid gap-8 md:grid-cols-2">
+    {
+      quotes.map((x) => (
+        <figure class="rounded-xl p-6 bg-brand-sand/50">
+          <blockquote class="text-brand-charcoal/90">&ldquo;{x.q}&rdquo;</blockquote>
+          <figcaption class="mt-3 text-sm text-brand-navy font-semibold">-- {x.a}</figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</section>

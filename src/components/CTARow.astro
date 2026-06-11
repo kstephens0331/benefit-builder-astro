@@ -1,0 +1,28 @@
+---
+interface Props {
+  primaryTo?: string;
+  primaryLabel: string;
+  secondaryTo?: string;
+  secondaryLabel?: string;
+  align?: "left" | "center";
+}
+const { primaryTo = "/contact", primaryLabel, secondaryTo, secondaryLabel, align = "left" } = Astro.props;
+---
+
+<div class={`w-full mt-8 ${align === "center" ? "text-center" : ""}`}>
+  <div class={`flex flex-wrap gap-3 ${align === "center" ? "justify-center" : ""}`}>
+    <a href={primaryTo} class="inline-flex items-center rounded-md bg-brand-green px-6 py-3 text-white font-semibold hover:opacity-90">
+      {primaryLabel}
+    </a>
+    {
+      secondaryTo && secondaryLabel && (
+        <a
+          href={secondaryTo}
+          class="inline-flex items-center rounded-md bg-white px-6 py-3 text-brand-navy font-semibold border border-brand-stone hover:bg-white/70"
+        >
+          {secondaryLabel}
+        </a>
+      )
+    }
+  </div>
+</div>

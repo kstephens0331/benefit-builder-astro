@@ -1,0 +1,31 @@
+---
+import type { Crumb } from "../lib/seo/jsonld";
+interface Props {
+  crumbs: Crumb[];
+}
+const { crumbs } = Astro.props;
+// JSON-LD for the breadcrumb is emitted by the page via its jsonLd array (Base head).
+---
+
+{
+  crumbs && crumbs.length > 0 && (
+    <nav aria-label="Breadcrumb" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4 text-sm text-brand-charcoal/70">
+      <ol class="flex flex-wrap items-center gap-1.5">
+        {crumbs.map((c, i) => (
+          <li class="flex items-center gap-1.5">
+            {i === crumbs.length - 1 ? (
+              <span aria-current="page" class="text-brand-charcoal">
+                {c.name}
+              </span>
+            ) : (
+              <a href={c.href} class="hover:text-brand-green">
+                {c.name}
+              </a>
+            )}
+            {i !== crumbs.length - 1 && <span class="text-brand-stone">/</span>}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}

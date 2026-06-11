@@ -1,0 +1,136 @@
+---
+import Base from "../../layouts/Base.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import CTARow from "../../components/CTARow.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { getAllPosts, allTagsByFrequency } from "../../lib/blog/posts";
+import { formatDateUTC } from "../../lib/blog/markdown";
+import { findRoute } from "../../lib/seo/routes";
+import { itemList, webPage, breadcrumbList } from "../../lib/seo/jsonld";
+
+const ALL = getAllPosts();
+const ALL_TAGS = allTagsByFrequency();
+const r = findRoute("/blog")!;
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "Blog", href: "/blog" },
+];
+const breadcrumb = breadcrumbList(crumbs);
+const jsonLd = [
+  itemList(ALL.map((p) => ({ name: p.title, url: `/blog/${p.slug}` }))),
+  webPage({ name: r.title, description: r.description, url: `https://benefitbuilderllc.com${r.path}`, breadcrumb }),
+  breadcrumb,
+];
+
+const featured = ALL[0];
+const rest = ALL.slice(1);
+const featuredHaystack = `${featured.title} ${featured.excerpt} ${featured.tags.join(" ")}`.toLowerCase();
+---
+
+<Base title={r.title} description={r.description} path={r.path} image={r.ogImage} jsonLd={jsonLd}>
+  <Breadcrumbs crumbs={crumbs} />
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <p class="text-sm font-semibold uppercase tracking-wide text-brand-green">Blog</p>
+    <h1 class="mt-2 font-heading text-4xl text-brand-navy md:text-5xl">Section 125 Guides and Insights</h1>
+    <p class="mt-4 max-w-3xl text-lg text-brand-charcoal/90">
+      Plain-language guides on pre-tax benefits for employers and the agents who serve them.
+    </p>
+
+    <div class="mt-8 flex flex-col gap-4">
+      <input
+        type="search"
+        id="blogSearch"
+        placeholder="Search articles"
+        aria-label="Search articles"
+        class="w-full max-w-md rounded-lg border border-brand-stone bg-white px-4 py-2.5"
+      />
+      <div class="flex flex-wrap items-center gap-2" id="tagBar">
+        <button type="button" data-tag="" class="tag-btn rounded-full border px-3 py-1 text-sm border-brand-green bg-brand-green text-white">All</button>
+        {
+          ALL_TAGS.map((t) => (
+            <button type="button" data-tag={t} class="tag-btn rounded-full border px-3 py-1 text-sm border-brand-stone text-brand-charcoal hover:bg-brand-stone/50">
+              {t}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    {/* Featured (first post) */}
+    <a
+      href={`/blog/${featured.slug}`}
+      class="blog-filterable group mt-10 grid gap-6 overflow-hidden rounded-xl border border-brand-stone bg-white transition hover:border-brand-green hover:shadow-md md:grid-cols-2"
+      data-tags={featured.tags.join("|").toLowerCase()}
+      data-text={featuredHaystack}
+    >
+      <img src={featured.image.replace(/\.png$/, ".webp")} alt={featured.title} width="1200" height="630" fetchpriority="high" class="aspect-[1200/630] w-full object-cover" />
+      <div class="flex flex-col justify-center p-6">
+        <div class="flex flex-wrap gap-2">
+          {featured.tags.slice(0, 2).map((t) => <span class="text-xs font-semibold uppercase tracking-wide text-brand-green">{t}</span>)}
+        </div>
+        <h2 class="mt-1 font-heading text-2xl text-brand-navy group-hover:underline">{featured.title}</h2>
+        <p class="mt-2 text-brand-charcoal/90">{featured.excerpt}</p>
+        <span class="mt-3 text-sm text-brand-charcoal/70">{formatDateUTC(featured.date)}</span>
+      </div>
+    </a>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="postGrid">
+      {rest.map((p) => <BlogCard post={p} />)}
+    </div>
+
+    <p class="mt-10 text-brand-charcoal/80 hidden" id="noResults">No articles match your search.</p>
+  </section>
+
+  <section class="bg-brand-navy">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-12 sm:px-6 md:flex-row lg:px-8">
+      <div>
+        <h2 class="font-heading text-2xl text-white">See what your company could save.</h2>
+        <p class="mt-1 text-white/85">Run your roster through the calculator, or talk to our team.</p>
+      </div>
+      <div>
+        <CTARow primaryLabel="Estimate your savings" primaryTo="/savings-calculator" secondaryTo="/contact" secondaryLabel="Contact us" />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Vanilla blog search + tag filter (no data refetch; show/hide prerendered cards).
+  const search = document.getElementById("blogSearch");
+  const tagBar = document.getElementById("tagBar");
+  const noResults = document.getElementById("noResults");
+  const cards = Array.from(document.querySelectorAll(".blog-filterable"));
+  let activeTag = "";
+
+  function apply() {
+    const q = (search?.value || "").trim().toLowerCase();
+    let visible = 0;
+    for (const card of cards) {
+      const text = card.getAttribute("data-text") || "";
+      const tags = (card.getAttribute("data-tags") || "").split("|");
+      const matchesTag = !activeTag || tags.includes(activeTag);
+      const matchesQuery = !q || text.includes(q);
+      const show = matchesTag && matchesQuery;
+      card.classList.toggle("hidden", !show);
+      if (show) visible++;
+    }
+    if (noResults) noResults.classList.toggle("hidden", visible !== 0);
+  }
+
+  search?.addEventListener("input", apply);
+  tagBar?.querySelectorAll(".tag-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      activeTag = btn.getAttribute("data-tag") || "";
+      tagBar.querySelectorAll(".tag-btn").forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle("border-brand-green", on);
+        b.classList.toggle("bg-brand-green", on);
+        b.classList.toggle("text-white", on);
+        b.classList.toggle("border-brand-stone", !on);
+        b.classList.toggle("text-brand-charcoal", !on);
+      });
+      apply();
+    });
+  });
+</script>

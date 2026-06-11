@@ -1,0 +1,58 @@
+---
+import { BUSINESS_NAME, PHONE_DISPLAY, PHONE, EMAIL, ADDRESS } from "../lib/seo/site";
+const year = 2026;
+---
+
+<footer class="mt-24 border-t border-brand-stone bg-white/70">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid gap-8 md:grid-cols-4 text-sm">
+    <div>
+      <div class="font-heading text-lg text-brand-navy">{BUSINESS_NAME}</div>
+      <p class="mt-2 text-brand-charcoal/80">Section 125 cafeteria plan administration. Texas-based, all-inclusive.</p>
+      <p class="mt-3 text-brand-charcoal/80">
+        {ADDRESS.street}<br />
+        {ADDRESS.city}, {ADDRESS.region} {ADDRESS.postal}
+      </p>
+    </div>
+
+    <div>
+      <div class="font-semibold text-brand-charcoal">Services</div>
+      <ul class="mt-3 space-y-2">
+        <li><a class="hover:text-brand-green" href="/services">Services overview</a></li>
+        <li><a class="hover:text-brand-green" href="/services/employers">For employers</a></li>
+        <li><a class="hover:text-brand-green" href="/services/brokers">For brokers</a></li>
+        <li><a class="hover:text-brand-green" href="/savings-calculator">Savings calculator</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="font-semibold text-brand-charcoal">Company</div>
+      <ul class="mt-3 space-y-2">
+        <li><a class="hover:text-brand-green" href="/platform">Platform</a></li>
+        <li><a class="hover:text-brand-green" href="/compliance">Compliance</a></li>
+        <li><a class="hover:text-brand-green" href="/about">About</a></li>
+        <li><a class="hover:text-brand-green" href="/partners">Partners</a></li>
+        <li><a class="hover:text-brand-green" href="/blog">Blog</a></li>
+        <li><a class="hover:text-brand-green" href="/locations">Service Areas</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="font-semibold text-brand-charcoal">Contact</div>
+      <ul class="mt-3 space-y-2">
+        <li><a class="text-brand-green hover:underline" href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+        <li><a class="hover:text-brand-green" href={`tel:${PHONE}`}>{PHONE_DISPLAY}</a></li>
+        <li><a class="hover:text-brand-green" href="/contact">Contact form</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-brand-stone">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-3 text-xs text-brand-charcoal/70">
+      <div>&copy; {year} {BUSINESS_NAME}. All rights reserved.</div>
+      <div class="flex items-center gap-4">
+        <a class="hover:text-brand-green" href="/legal/privacy">Privacy Policy</a>
+        <a class="hover:text-brand-green" href="/legal/terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

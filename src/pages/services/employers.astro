@@ -1,0 +1,106 @@
+---
+import Base from "../../layouts/Base.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import CTARow from "../../components/CTARow.astro";
+import { findRoute } from "../../lib/seo/routes";
+import { service, webPage, breadcrumbList } from "../../lib/seo/jsonld";
+
+const r = findRoute("/services/employers")!;
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "For Employers", href: "/services/employers" },
+];
+const breadcrumb = breadcrumbList(crumbs);
+const jsonLd = [
+  service({
+    name: "Pre-Tax Benefits Administration for Employers",
+    description: r.description,
+    url: `https://benefitbuilderllc.com${r.path}`,
+    serviceType: "Section 125 cafeteria plan administration",
+  }),
+  webPage({ name: r.title, description: r.description, url: `https://benefitbuilderllc.com${r.path}`, breadcrumb }),
+  breadcrumb,
+];
+
+const cards = [
+  { title: "FICA payroll savings", body: "Employer FICA tax drops 7.65% on every dollar of pre-tax election. For most clients that pays our administration fee several times over." },
+  { title: "Higher employee take-home", body: "Employees keep more of every paycheck because federal income tax and FICA do not apply to qualified pre-tax deductions." },
+  { title: "Bundled compliance", body: "Plan document, adoption agreement, salary reduction forms, and annual nondiscrimination testing are included. Nothing extra to buy." },
+  { title: "Plain-language enrollment", body: "Employees see clear comparisons of net pay before and after pre-tax elections. Higher participation, fewer questions, less HR friction." },
+  { title: "Payroll integration", body: "We work with your existing payroll vendor. Roster sync, deduction files, and reconciliation happen on a schedule we manage." },
+  { title: "Real human support", body: "Texas-based team. Quotes within one business day. Owners answer the phone, not a call center." },
+];
+const steps = [
+  { n: 1, title: "Discovery call", body: "We review your headcount, current benefits, and pay frequency. Thirty minutes is usually enough to scope a quote." },
+  { n: 2, title: "Plan design and quote", body: "We draft a Section 125 plan structure tuned to your workforce and present a clear monthly fee. You see the savings before you commit." },
+  { n: 3, title: "Adoption and rollout", body: "Adoption agreement signed, plan document delivered, and enrollment scheduled. We handle the employee education sessions." },
+  { n: 4, title: "Ongoing administration", body: "Monthly invoicing, payroll deduction files, year-end nondiscrimination testing, and renewal reviews. You focus on running the business." },
+];
+---
+
+<Base title={r.title} description={r.description} path={r.path} image={r.ogImage} jsonLd={jsonLd}>
+  <Breadcrumbs crumbs={crumbs} />
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <p class="text-sm uppercase tracking-wide text-brand-green font-semibold">For Employers</p>
+    <h1 class="font-heading text-4xl md:text-5xl text-brand-navy mt-2">Pre-Tax Benefits That Pay for Themselves</h1>
+    <p class="mt-4 max-w-3xl text-brand-charcoal/90 text-lg">
+      A Section 125 cafeteria plan lets your employees pay for qualified benefits with pre-tax dollars. That single
+      change cuts the employer's FICA payroll tax by 7.65% on every dollar enrolled, raises employee take-home pay, and
+      strengthens your benefits story for recruiting and retention.
+    </p>
+    <div class="mt-6">
+      <CTARow primaryLabel="Get a quote" primaryTo="/contact" secondaryTo="/savings-calculator" secondaryLabel="Estimate your savings" />
+    </div>
+  </section>
+
+  <section class="bg-white border-y border-brand-stone">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-heading text-3xl text-brand-navy">What you get</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          cards.map((c) => (
+            <div class="rounded-lg border border-brand-stone bg-white p-6">
+              <h3 class="font-heading text-xl text-brand-navy">{c.title}</h3>
+              <p class="mt-3 text-brand-charcoal/90">{c.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-sand/40 border-y border-brand-stone">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-heading text-3xl text-brand-navy">How it works</h2>
+      <ol class="mt-6 space-y-5 text-brand-charcoal/90">
+        {
+          steps.map((s) => (
+            <li class="flex gap-4">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-green text-white font-bold">{s.n}</span>
+              <div>
+                <h3 class="font-heading text-lg text-brand-navy">{s.title}</h3>
+                <p class="mt-1">{s.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-heading text-3xl text-brand-navy">Pricing in plain English</h2>
+      <p class="mt-4 max-w-3xl text-brand-charcoal/90">
+        We charge a combined 7% of pre-tax payroll deductions (3% employee, 4% employer in our most common arrangement).
+        That fee covers everything: plan document, NDT, e-signature, support, and the platform. There are no setup fees,
+        no NDT fees, and no annual filing fees.
+      </p>
+      <div class="mt-6">
+        <CTARow primaryLabel="Get a tailored quote" primaryTo="/contact" secondaryTo="/compliance" secondaryLabel="See what is bundled" />
+      </div>
+    </div>
+  </section>
+</Base>

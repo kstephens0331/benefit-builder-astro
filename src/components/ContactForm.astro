@@ -1,0 +1,160 @@
+---
+// Vanilla contact form. Posts to the existing /api/contact backend (unchanged).
+// Honeypot + elapsed-time bot checks preserved; client validation mirrors the old
+// zod schema (server remains the source of truth).
+---
+
+<div>
+  <div
+    id="formNotice"
+    role="status"
+    aria-live="polite"
+    tabindex="-1"
+    class="mb-4 hidden rounded-xl border border-brand-green bg-brand-green/10 p-4 focus:outline-none"
+  >
+    <div class="flex items-start gap-3">
+      <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center text-brand-green">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="h-6 w-6">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"></circle>
+          <path d="M8.5 12.5 11 15l4.5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <div>
+        <p class="font-semibold text-brand-navy">Thank you -- message received.</p>
+        <p class="mt-1 text-sm text-brand-charcoal/90">
+          We will be in contact within one business day. If it is urgent, call
+          <a class="underline decoration-brand-stone hover:text-brand-navy" href="tel:+19727415663">(972) 741-5663</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <form id="contactForm" class="grid gap-4" novalidate>
+    <div class="hidden">
+      <label for="company_website">Company website</label>
+      <input id="company_website" name="company_website" autocomplete="off" tabindex="-1" />
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-sm font-medium text-brand-navy" for="name">Full name</label>
+        <input id="name" name="name" class="mt-1 w-full rounded-lg border border-brand-stone bg-white px-3 py-2" />
+        <p id="err-name" class="mt-1 hidden text-sm text-red-700"></p>
+      </div>
+      <div>
+        <label class="text-sm font-medium text-brand-navy" for="company">Company (optional)</label>
+        <input id="company" name="company" class="mt-1 w-full rounded-lg border border-brand-stone bg-white px-3 py-2" />
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-sm font-medium text-brand-navy" for="email">Email</label>
+        <input id="email" name="email" type="email" class="mt-1 w-full rounded-lg border border-brand-stone bg-white px-3 py-2" />
+        <p id="err-email" class="mt-1 hidden text-sm text-red-700"></p>
+      </div>
+      <div>
+        <label class="text-sm font-medium text-brand-navy" for="phone">Phone (optional)</label>
+        <input id="phone" name="phone" type="tel" class="mt-1 w-full rounded-lg border border-brand-stone bg-white px-3 py-2" />
+      </div>
+    </div>
+
+    <div>
+      <label class="text-sm font-medium text-brand-navy" for="message">How can we help?</label>
+      <textarea id="message" name="message" rows="5" class="mt-1 w-full rounded-lg border border-brand-stone bg-white px-3 py-2"></textarea>
+      <p id="err-message" class="mt-1 hidden text-sm text-red-700"></p>
+    </div>
+
+    <div class="mt-2 flex items-center gap-4">
+      <button type="submit" class="inline-flex items-center rounded-md bg-brand-green text-white font-semibold px-6 py-3 hover:opacity-90 disabled:opacity-60">
+        Send message
+      </button>
+      <p id="formError" class="hidden text-sm text-red-700"></p>
+    </div>
+
+    <p class="text-xs text-brand-charcoal/80 mt-2">
+      By submitting, you agree to be contacted about your request. We respect your privacy and will not share your details.
+    </p>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById("contactForm");
+  if (form) {
+    const start = Date.now();
+    const notice = document.getElementById("formNotice");
+    const errBox = document.getElementById("formError");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const emailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+    function setErr(id, msg) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = msg || "";
+      el.classList.toggle("hidden", !msg);
+    }
+
+    form.addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      if (errBox) errBox.classList.add("hidden");
+      const fd = new FormData(form);
+      const name = String(fd.get("name") || "").trim();
+      const email = String(fd.get("email") || "").trim();
+      const message = String(fd.get("message") || "").trim();
+      const honeypot = String(fd.get("company_website") || "");
+
+      let ok = true;
+      setErr("err-name", name.length >= 2 ? "" : "Please enter your name.");
+      if (name.length < 2) ok = false;
+      setErr("err-email", emailRe.test(email) ? "" : "Enter a valid email.");
+      if (!emailRe.test(email)) ok = false;
+      setErr("err-message", message.length >= 10 ? "" : "A few more details will help.");
+      if (message.length < 10) ok = false;
+      if (honeypot) return; // bot
+      if (!ok) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            company: String(fd.get("company") || ""),
+            email,
+            phone: String(fd.get("phone") || ""),
+            message,
+            honeypot,
+            elapsedMs: Date.now() - start,
+            cf_turnstile_response: "",
+          }),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json && json.ok) {
+          form.reset();
+          form.classList.add("hidden");
+          if (notice) {
+            notice.classList.remove("hidden");
+            notice.scrollIntoView({ behavior: "smooth", block: "start" });
+            notice.focus();
+          }
+          try {
+            window.dispatchEvent(new CustomEvent("contact:submitted"));
+          } catch (e) {}
+        } else if (errBox) {
+          errBox.textContent = (json && json.error) || "Something went wrong sending your message. Please try again.";
+          errBox.classList.remove("hidden");
+        }
+      } catch (e) {
+        if (errBox) {
+          errBox.textContent = "Network error. Please try again.";
+          errBox.classList.remove("hidden");
+        }
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send message";
+      }
+    });
+  }
+</script>

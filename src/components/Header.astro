@@ -1,0 +1,97 @@
+---
+const LINKS = [
+  { to: "/", label: "Home" },
+  { to: "/services", label: "Services" },
+  { to: "/platform", label: "Platform" },
+  { to: "/compliance", label: "Compliance" },
+  { to: "/savings-calculator", label: "Calculator" },
+  { to: "/blog", label: "Blog" },
+  { to: "/about", label: "About" },
+  { to: "/partners", label: "Partners" },
+  { to: "/contact", label: "Contact" },
+];
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+function isActive(to: string): boolean {
+  if (to === "/") return pathname === "/";
+  return pathname === to || pathname.startsWith(to + "/");
+}
+const base = "px-3 py-2 rounded-md text-sm font-medium";
+---
+
+<header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-brand-stone">
+  <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 min-h-[80px] py-2 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="/" class="shrink-0" aria-label="Benefit Builder, Home">
+        <img
+          src="/images/benefit-builder-logo.png"
+          alt="Benefit Builder LLC"
+          width="64"
+          height="64"
+          class="h-16 w-16 object-contain"
+        />
+      </a>
+      <div class="font-heading text-lg md:text-xl tracking-wide text-brand-navy">Benefit Builder LLC</div>
+    </div>
+
+    <div class="hidden lg:flex items-center gap-1">
+      {
+        LINKS.map((x) => (
+          <a
+            href={x.to}
+            class={`${base} ${isActive(x.to) ? "text-white bg-brand-green" : "text-brand-charcoal hover:bg-brand-stone/60"}`}
+          >
+            {x.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <button
+      type="button"
+      id="navToggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+      class="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-brand-charcoal hover:bg-brand-stone/60"
+    >
+      <svg id="navIconOpen" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+      <svg id="navIconClose" class="h-6 w-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </nav>
+
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-brand-stone bg-white">
+    <ul class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 space-y-1">
+      {
+        LINKS.map((x) => (
+          <li>
+            <a
+              href={x.to}
+              class={`block ${base} ${isActive(x.to) ? "text-white bg-brand-green" : "text-brand-charcoal hover:bg-brand-stone/60"}`}
+            >
+              {x.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("navToggle");
+  const menu = document.getElementById("mobileMenu");
+  const iconOpen = document.getElementById("navIconOpen");
+  const iconClose = document.getElementById("navIconClose");
+  btn?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("hidden") === false;
+    btn.setAttribute("aria-expanded", String(isOpen));
+    btn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    iconOpen?.classList.toggle("hidden", isOpen);
+    iconClose?.classList.toggle("hidden", !isOpen);
+  });
+</script>

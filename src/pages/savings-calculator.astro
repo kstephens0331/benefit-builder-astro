@@ -1,0 +1,143 @@
+---
+import Base from "../layouts/Base.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { findRoute } from "../lib/seo/routes";
+import { webApplication, webPage, breadcrumbList } from "../lib/seo/jsonld";
+import { STATE_OPTIONS, computeSavings, EMPLOYEE_FEE_RATE, EMPLOYER_FEE_RATE } from "../lib/tax/savings2026";
+
+const r = findRoute("/savings-calculator")!;
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "Savings Calculator", href: "/savings-calculator" },
+];
+const breadcrumb = breadcrumbList(crumbs);
+const jsonLd = [
+  webApplication({
+    name: "Section 125 Savings Calculator",
+    description: r.description,
+    url: `https://benefitbuilderllc.com${r.path}`,
+    applicationCategory: "FinanceApplication",
+  }),
+  webPage({ name: r.title, description: r.description, url: `https://benefitbuilderllc.com${r.path}`, breadcrumb }),
+  breadcrumb,
+];
+
+// Server-rendered initial result so numbers are correct before JS runs.
+const SEC125_MONTHLY = 800;
+const PERIODS: Record<string, number> = { weekly: 52, biweekly: 26, semimonthly: 24, monthly: 12 };
+function calc(employees: number, avgGross: number, frequency: string, stateCode: string) {
+  const periods = PERIODS[frequency];
+  const annualGrossPerEmployee = avgGross * periods;
+  const monthlyPretax = annualGrossPerEmployee / 12 >= SEC125_MONTHLY ? SEC125_MONTHLY : 0;
+  return computeSavings({ employees, annualGrossPerEmployee, annualPretaxPerEmployee: monthlyPretax * 12, stateCode });
+}
+const init = calc(50, 2500, "biweekly", "TX");
+const fmtUSD = (n: number) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(Math.round(n));
+const fmtPct = (n: number) => `${(n * 100).toFixed(1)}%`;
+---
+
+<Base title={r.title} description={r.description} path={r.path} image={r.ogImage} jsonLd={jsonLd}>
+  <Breadcrumbs crumbs={crumbs} />
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <p class="text-sm uppercase tracking-wide text-brand-green font-semibold">Savings calculator</p>
+    <h1 class="font-heading text-4xl md:text-5xl text-brand-navy mt-2">Estimate Your Section 125 Savings</h1>
+    <p class="mt-4 max-w-3xl text-brand-charcoal/90 text-lg">
+      Enter your headcount, average gross pay, pay frequency, and state. We show the estimated annual savings for both
+      the employer and employees, net of our 8% administration fee. No signup required.
+    </p>
+  </section>
+
+  <section class="bg-white border-y border-brand-stone">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid gap-10 lg:grid-cols-2">
+      <form class="space-y-5" id="calcForm" aria-label="Savings calculator inputs">
+        <div>
+          <label for="employees" class="block text-sm font-semibold text-brand-charcoal">Number of enrolled employees</label>
+          <input id="employees" type="number" min="1" value="50" class="mt-2 w-full rounded border border-brand-stone bg-white px-3 py-2" />
+        </div>
+        <div>
+          <label for="avgGross" class="block text-sm font-semibold text-brand-charcoal">Average gross pay per period</label>
+          <input id="avgGross" type="number" min="0" step="50" value="2500" class="mt-2 w-full rounded border border-brand-stone bg-white px-3 py-2" />
+        </div>
+        <div>
+          <label for="frequency" class="block text-sm font-semibold text-brand-charcoal">Pay frequency</label>
+          <select id="frequency" class="mt-2 w-full rounded border border-brand-stone bg-white px-3 py-2">
+            <option value="weekly">Weekly (52 periods)</option>
+            <option value="biweekly" selected>Bi-weekly (26 periods)</option>
+            <option value="semimonthly">Semi-monthly (24 periods)</option>
+            <option value="monthly">Monthly (12 periods)</option>
+          </select>
+        </div>
+        <div>
+          <label for="state" class="block text-sm font-semibold text-brand-charcoal">State</label>
+          <select id="state" class="mt-2 w-full rounded border border-brand-stone bg-white px-3 py-2">
+            {STATE_OPTIONS.map((s) => <option value={s.code} selected={s.code === "TX"}>{s.name}</option>)}
+          </select>
+        </div>
+      </form>
+
+      <div class="rounded-lg border border-brand-stone bg-brand-sand/30 p-6">
+        <h2 class="font-heading text-2xl text-brand-navy">Estimated annual savings</h2>
+        <p class="mt-1 text-sm text-brand-charcoal/70">
+          Net of the 8% administration fee ({fmtPct(EMPLOYEE_FEE_RATE)} employee, {fmtPct(EMPLOYER_FEE_RATE)} employer).
+          Estimates assume single filing status with 0 dependents.
+        </p>
+        <dl class="mt-6 space-y-4">
+          <div class="flex items-baseline justify-between gap-4">
+            <dt class="text-sm text-brand-charcoal/80">Employee tax savings rate (FICA + federal + state)</dt>
+            <dd id="rEmployeeRate" class="text-base text-brand-charcoal">{fmtPct(init.employeeTaxRate)}</dd>
+          </div>
+          <div class="flex items-baseline justify-between gap-4">
+            <dt class="text-sm text-brand-charcoal/80">Employer net savings (total team)</dt>
+            <dd id="rEmployerNet" class="text-2xl font-bold text-brand-green">{fmtUSD(init.employerNetTeam)}</dd>
+          </div>
+          <div class="flex items-baseline justify-between gap-4">
+            <dt class="text-sm text-brand-charcoal/80">Employee net savings (total team)</dt>
+            <dd id="rEmployeeNet" class="text-2xl font-bold text-brand-green">{fmtUSD(init.employeeNetTeam)}</dd>
+          </div>
+          <div class="flex items-baseline justify-between gap-4">
+            <dt class="text-sm text-brand-charcoal/80">Net combined savings (total team)</dt>
+            <dd id="rCombined" class="text-2xl font-bold text-brand-green">{fmtUSD(init.netCombinedTeam)}</dd>
+          </div>
+        </dl>
+        <p class="mt-6 text-xs text-brand-charcoal/70">
+          Estimate. The employee figure uses the 7.65% FICA rate plus a single-filer federal marginal rate and your
+          state income tax rate for 2026; the employer figure uses the 7.65% FICA rate. Both are shown net of our 8%
+          administration fee. Actual results vary with filing status, dependents, the Social Security wage base ($184,500
+          for 2026), and local taxes. Contact us for a precise quote tailored to your roster.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { computeSavings } from "../lib/tax/savings2026";
+  const SEC125_MONTHLY = 800;
+  const PERIODS = { weekly: 52, biweekly: 26, semimonthly: 24, monthly: 12 };
+  const fmtUSD = (n) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(Math.round(n));
+  const fmtPct = (n) => `${(n * 100).toFixed(1)}%`;
+  const $ = (id) => document.getElementById(id);
+
+  function update() {
+    const employees = Math.max(1, Number($("employees").value) || 0);
+    const avgGross = Math.max(0, Number($("avgGross").value) || 0);
+    const frequency = $("frequency").value;
+    const stateCode = $("state").value;
+    const annualGrossPerEmployee = avgGross * PERIODS[frequency];
+    const monthlyPretax = annualGrossPerEmployee / 12 >= SEC125_MONTHLY ? SEC125_MONTHLY : 0;
+    const r = computeSavings({ employees, annualGrossPerEmployee, annualPretaxPerEmployee: monthlyPretax * 12, stateCode });
+    $("rEmployeeRate").textContent = fmtPct(r.employeeTaxRate);
+    $("rEmployerNet").textContent = fmtUSD(r.employerNetTeam);
+    $("rEmployeeNet").textContent = fmtUSD(r.employeeNetTeam);
+    $("rCombined").textContent = fmtUSD(r.netCombinedTeam);
+  }
+
+  const form = document.getElementById("calcForm");
+  form?.addEventListener("submit", (e) => e.preventDefault());
+  ["employees", "avgGross", "frequency", "state"].forEach((id) => {
+    const el = document.getElementById(id);
+    el?.addEventListener("input", update);
+    el?.addEventListener("change", update);
+  });
+</script>
