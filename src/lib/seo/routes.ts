@@ -58,7 +58,7 @@ const STATIC_ROUTES: RouteDescriptor[] = [
     path: "/platform",
     title: "Benefits Administration Platform | Benefit Builder LLC",
     description:
-      "Roster sync, automated invoicing, QuickBooks integration, NDT engine, e-signature, audit trail. Built and run in-house.",
+      "Benefit Builder runs your Section 125 plan on our in-house platform. You send a census, sign the agreements, and verify your roster monthly. We handle the rest.",
     ogImage: "/og/og-platform.png",
     priority: 0.8,
     changefreq: "monthly",

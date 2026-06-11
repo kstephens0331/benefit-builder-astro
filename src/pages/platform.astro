@@ -23,16 +23,42 @@ const jsonLd = [
   breadcrumb,
 ];
 
-const features = [
-  { title: "Roster sync", body: "Upload census files in any format. Our AI parser maps columns automatically and validates filing status, dependents, gross pay, and pay frequency before changes land." },
-  { title: "Automated invoicing", body: "Monthly invoices generate from active roster and elections. Branded PDFs, customer-portal access, and one-click email delivery to AP contacts." },
-  { title: "QuickBooks Online", body: "Bidirectional sync of customers, invoices, and payments every 30 minutes. AR/AP stay reconciled across both systems automatically." },
-  { title: "Nondiscrimination testing", body: "Eligibility, contributions and benefits, and key employee concentration tests run on demand. Results delivered as audit-ready PDFs." },
-  { title: "E-signature workflow", body: "Adoption agreement, salary reduction, and life event change forms signed electronically with full audit trail and ESIGN/UETA compliance." },
-  { title: "Document vault", body: "Per-company storage of plan documents, signed agreements, and prior-period reports. Role-gated access for admin, rep, and client users." },
-  { title: "Compliance dashboard", body: "One screen shows missing plan documents, NDT status, late invoices, and roster verification timestamps for every client." },
-  { title: "Audit log", body: "Every action is recorded: logins, SSN reveals, data changes, financial entries. Full forensic timeline available to administrators." },
-  { title: "Reports and exports", body: "AR aging, billing summary, employee roster, expenses, payments, and month-end closings exportable to Excel, PDF, and CSV." },
+const clientSteps = [
+  {
+    title: "Send us your census",
+    body: "Share your employee census at setup, and again whenever your team changes. That is the information we need to build and run your plan. We accept it in whatever format your payroll already produces.",
+  },
+  {
+    title: "Sign the agreements",
+    body: "Review and electronically sign your plan documents and agreements. We prepare each one for you and explain what it covers, so there is nothing to draft or research on your end.",
+  },
+  {
+    title: "Verify your roster on the 20th",
+    body: "Once a month we send your current roster for a quick review. You confirm it by the 20th. That is your entire monthly commitment to keeping the plan accurate and compliant.",
+  },
+];
+
+const handledForYou = [
+  {
+    title: "Accurate pre-tax deductions",
+    body: "We calculate the correct pre-tax amount for every participant, so the deductions on your payroll stay right pay period after pay period.",
+  },
+  {
+    title: "Plan documents, prepared and current",
+    body: "Your Section 125 plan document, adoption agreement, and salary reduction forms are drafted, signed, and kept up to date as your plan or the rules change.",
+  },
+  {
+    title: "Nondiscrimination testing",
+    body: "We run the required nondiscrimination testing each plan year to keep your plan qualified, and flag anything that needs attention while there is still time to act.",
+  },
+  {
+    title: "Billing handled on our side",
+    body: "Your monthly billing and the bookkeeping behind it happen on our platform. You receive one clear invoice. You never log into an accounting system.",
+  },
+  {
+    title: "Secure, audit-ready records",
+    body: "Every signed document and plan record is stored securely and kept audit-ready, so if your plan is ever reviewed the paperwork is already in order.",
+  },
 ];
 ---
 
@@ -43,10 +69,10 @@ const features = [
     <img src="/images/home-lower-1.webp" alt="A team collaborating in a modern office" class="absolute inset-0 h-full w-full object-cover object-center" loading="eager" fetchpriority="high" decoding="async" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-transparent"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-      <h1 class="font-heading text-white drop-shadow text-4xl md:text-5xl">The Benefits Administration Platform We Built</h1>
+      <h1 class="font-heading text-white drop-shadow text-4xl md:text-5xl">A Platform That Runs Your Plan For You</h1>
       <p class="mt-4 max-w-3xl text-white/90 text-lg">
-        We do not resell another vendor. We built and run our own platform end to end. Roster sync, automated invoicing,
-        QuickBooks bookkeeping, nondiscrimination testing, e-signature, and audit trail are all included with your monthly fee.
+        We built and run our own platform so your Section 125 plan is handled from end to end. You send us a census, sign
+        the agreements, and verify your roster each month. We take care of everything else.
       </p>
       <div class="mt-6">
         <CTARow primaryLabel="Talk to an expert" primaryTo="/contact" secondaryTo="/services" secondaryLabel="See services" />
@@ -54,156 +80,82 @@ const features = [
     </div>
   </section>
 
-  <section class="bg-white border-b border-brand-stone" aria-label="Platform overview">
+  {/* WHAT YOU DO -- the client's entire role */}
+  <section class="bg-white border-b border-brand-stone" aria-label="What you do">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 lg:grid-cols-2 items-center">
+      <div>
+        <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Your part is simple</p>
+        <h2 class="font-heading text-3xl text-brand-navy mt-2">Three things on your side. We handle the rest.</h2>
+        <p class="mt-4 text-brand-charcoal/90">
+          A Section 125 plan has a lot of moving parts. Almost none of them land on you. Your team has three
+          responsibilities, and Benefit Builder carries everything else.
+        </p>
+        <ol class="mt-6 space-y-5">
+          {
+            clientSteps.map((s, i) => (
+              <li class="flex gap-4">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-green text-white font-bold">{i + 1}</span>
+                <div>
+                  <h3 class="font-heading text-lg text-brand-navy">{s.title}</h3>
+                  <p class="mt-1 text-brand-charcoal/90">{s.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+      <div>
+        <ResponsiveImage src="/images/platform-collaboration.webp" alt="An employer reviewing their monthly roster" width={1200} height={800} />
+      </div>
+    </div>
+  </section>
+
+  {/* HANDLED FOR YOU -- benefit framing, no internal mechanics */}
+  <section class="bg-brand-sand/40 border-b border-brand-stone" aria-label="What we handle">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-center">
       <div>
-        <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">One system of record</p>
-        <h2 class="font-heading text-3xl text-brand-navy mt-2">Every step of plan administration in a single platform</h2>
-        <div class="prose prose-neutral max-w-none mt-5 text-brand-charcoal/90">
-          <p>
-            Benefit Builder runs your Section 125 cafeteria plan from a single application that we design, build, and
-            operate ourselves. Census data, pre-tax elections, monthly invoicing, bookkeeping, nondiscrimination testing,
-            signed plan documents, and the full audit trail all live in one place, so the same numbers flow from
-            enrollment through to your general ledger without re-keying.
-          </p>
-          <p>
-            Because the platform is our own software rather than a reseller arrangement, the people who answer your
-            questions are the people who maintain the code. When a regulation changes or your roster shifts, the
-            adjustment happens in the same system your administrator already uses every day.
-          </p>
-        </div>
-        <div class="mt-6">
-          <CTARow primaryLabel="Request a walkthrough" primaryTo="/contact" secondaryTo="/services" secondaryLabel="See services" />
-        </div>
-      </div>
-      <div>
-        <ResponsiveImage src="/images/platform-dashboard.webp" alt="The Benefit Builder administration dashboard" width={1200} height={800} />
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-brand-sand/40 border-b border-brand-stone" aria-label="Platform capabilities">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Capabilities</p>
-      <h2 class="font-heading text-3xl text-brand-navy mt-2">What the platform does for your plan</h2>
-      <p class="mt-4 max-w-3xl text-brand-charcoal/90">
-        Each capability below is a feature we operate in production today. Together they cover the administrative,
-        accounting, and compliance work that a Section 125 plan requires month after month.
-      </p>
-      <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {
-          features.map((f) => (
-            <div class="rounded-lg border border-brand-stone bg-white p-6">
-              <h3 class="font-heading text-xl text-brand-navy">{f.title}</h3>
-              <p class="mt-3 text-brand-charcoal/90">{f.body}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-white border-b border-brand-stone" aria-label="Monthly workflow">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-start">
-      <div>
-        <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Workflow</p>
-        <h2 class="font-heading text-3xl text-brand-navy mt-2">How the platform fits your monthly cycle</h2>
+        <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Handled for you</p>
+        <h2 class="font-heading text-3xl text-brand-navy mt-2">Everything else runs behind the scenes</h2>
         <p class="mt-4 text-brand-charcoal/90">
-          Benefits administration is a recurring rhythm, not a one-time setup. The platform is built around that cycle so
-          that each month closes cleanly and the next one starts from verified data.
+          Once your plan is set up, the day-to-day administration happens on our platform, not on your desk. You will
+          never reconcile a ledger or chase a filing deadline. Here is what we keep running for you.
         </p>
-        <ol class="mt-6 space-y-5 text-brand-charcoal/90">
-          <li>
-            <strong class="text-brand-navy">1. Verify the roster.</strong> Upload your latest census in whatever format
-            payroll produces. The AI-assisted parser maps columns, then validation flags filing status, dependent counts,
-            gross pay, and pay frequency before any change is committed.
-          </li>
-          <li>
-            <strong class="text-brand-navy">2. Confirm elections.</strong> Pre-tax deductions and participant elections
-            are reconciled against the active roster so that only eligible, enrolled employees are billed and reported.
-          </li>
-          <li>
-            <strong class="text-brand-navy">3. Generate invoices.</strong> Monthly invoices build automatically from the
-            confirmed roster and elections, producing branded PDFs and customer-portal access with one-click delivery to
-            your accounts payable contact.
-          </li>
-          <li>
-            <strong class="text-brand-navy">4. Reconcile the books.</strong> Bidirectional QuickBooks Online sync keeps
-            customers, invoices, and payments aligned, so accounts receivable and accounts payable stay current in both
-            systems without manual entry.
-          </li>
-          <li>
-            <strong class="text-brand-navy">5. Close the month.</strong> Month-end closing locks the period, captures the
-            financial snapshot, and makes AR aging, billing, roster, expense, and payment reports available for export.
-          </li>
-        </ol>
+        <ul class="mt-6 space-y-4">
+          {
+            handledForYou.map((h) => (
+              <li>
+                <h3 class="font-heading text-lg text-brand-navy">{h.title}</h3>
+                <p class="mt-1 text-brand-charcoal/90">{h.body}</p>
+              </li>
+            ))
+          }
+        </ul>
         <div class="mt-8">
-          <CTARow primaryLabel="See it on your roster" primaryTo="/contact" secondaryTo="/compliance" secondaryLabel="Compliance details" />
+          <CTARow primaryLabel="See how it works" primaryTo="/contact" secondaryTo="/compliance" secondaryLabel="Compliance details" />
         </div>
       </div>
       <div>
-        <ResponsiveImage src="/images/platform-collaboration.webp" alt="A team reviewing benefits administration on the platform" width={1200} height={800} />
+        <ResponsiveImage src="/images/platform-dashboard.webp" alt="Benefit Builder keeps every plan record in one place" width={1200} height={800} />
       </div>
     </div>
   </section>
 
-  <section class="bg-brand-sand/40 border-b border-brand-stone" aria-label="Integrations">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Integrations</p>
-      <h2 class="font-heading text-3xl text-brand-navy mt-2">Connected to the tools you already run</h2>
-      <p class="mt-4 max-w-3xl text-brand-charcoal/90">
-        The platform is designed to sit alongside your existing accounting and payroll operations rather than replace
-        them. Data moves in and out cleanly so your finance team keeps working in the systems they know.
-      </p>
-      <div class="mt-10 grid gap-8 md:grid-cols-3">
-        <div class="rounded-lg border border-brand-stone bg-white p-6">
-          <h3 class="font-heading text-xl text-brand-navy">QuickBooks Online</h3>
-          <p class="mt-3 text-brand-charcoal/90">
-            A bidirectional sync runs every 30 minutes, pushing and pulling customers, invoices, and payments. Your
-            AR/AP ledgers stay reconciled with the platform automatically, and each sync is recorded so you can confirm
-            exactly what moved and when.
-          </p>
-        </div>
-        <div class="rounded-lg border border-brand-stone bg-white p-6">
-          <h3 class="font-heading text-xl text-brand-navy">Payroll and census files</h3>
-          <p class="mt-3 text-brand-charcoal/90">
-            Whatever your payroll vendor exports, the AI-assisted upload reads it. Column mapping and validation handle
-            the formatting differences between providers, so you are not forced into a rigid template to keep pre-tax
-            deductions accurate.
-          </p>
-        </div>
-        <div class="rounded-lg border border-brand-stone bg-white p-6">
-          <h3 class="font-heading text-xl text-brand-navy">Email delivery</h3>
-          <p class="mt-3 text-brand-charcoal/90">
-            Invoices, roster verification requests, and signed plan documents are delivered by email directly from the
-            platform. Branded PDFs reach the right contact, and the system records that the message was sent as part of
-            the audit trail.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-white border-b border-brand-stone" aria-label="Security and audit trail">
+  {/* WHY OUR OWN PLATFORM -- trust, high level */}
+  <section class="bg-white border-b border-brand-stone" aria-label="Built in-house">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-center">
       <div class="order-2 md:order-1">
-        <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Security and recordkeeping</p>
-        <h2 class="font-heading text-3xl text-brand-navy mt-2">Built for sensitive payroll data and a defensible record</h2>
+        <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Built and run in-house</p>
+        <h2 class="font-heading text-3xl text-brand-navy mt-2">Your plan runs on software we own, not a reseller's</h2>
         <div class="prose prose-neutral max-w-none mt-5 text-brand-charcoal/90">
           <p>
-            A Section 125 plan handles Social Security numbers, gross pay, and election data. The platform treats that
-            information accordingly. Access is role-gated across administrator, representative, and client users, so each
-            person sees only the companies and records their role permits.
+            Most administrators license another company's software and pass the cost and the limitations on to you. We
+            built our own platform and run it ourselves. Your roster, Social Security numbers, and pay data stay inside a
+            system we control, and access is limited to the people who need it.
           </p>
           <p>
-            A complete audit log captures every meaningful action: logins, Social Security number reveals, data changes,
-            and financial entries. The result is a forensic timeline administrators can review at any time, which matters
-            both for internal control and for demonstrating diligence during a plan review.
-          </p>
-          <p>
-            Electronic signatures are handled in the same system. Adoption agreements, salary reduction forms, and life
-            event changes are signed with a full audit trail and recorded to meet ESIGN and UETA requirements, then filed
-            in the per-company document vault alongside plan documents and prior-period reports.
+            Your agreements are signed electronically and kept to ESIGN and UETA standards, with a clear record of who
+            signed and when. And when a regulation changes, we make the change ourselves instead of waiting in a vendor's
+            support queue.
           </p>
         </div>
         <div class="mt-6">
@@ -211,68 +163,28 @@ const features = [
         </div>
       </div>
       <div class="order-1 md:order-2">
-        <ResponsiveImage src="/images/platform-security.webp" alt="Secure recordkeeping and audit trail" width={1200} height={800} />
+        <ResponsiveImage src="/images/platform-security.webp" alt="Your plan records are kept secure and audit-ready" width={1200} height={800} />
       </div>
     </div>
   </section>
 
-  <section class="bg-brand-sand/40 border-b border-brand-stone" aria-label="Compliance and testing">
+  {/* WHY IT MATTERS TO YOU */}
+  <section class="bg-brand-sand/40 border-b border-brand-stone" aria-label="Why it matters">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Compliance built in</p>
-      <h2 class="font-heading text-3xl text-brand-navy mt-2">Nondiscrimination testing and a single compliance view</h2>
-      <p class="mt-4 max-w-3xl text-brand-charcoal/90">
-        Keeping a cafeteria plan qualified is ongoing work. The platform runs the required nondiscrimination tests and
-        surfaces plan health on one screen, so issues are caught while there is still time to act on them.
-      </p>
-      <div class="mt-10 grid gap-8 md:grid-cols-2">
-        <div class="rounded-lg border border-brand-stone bg-white p-6">
-          <h3 class="font-heading text-xl text-brand-navy">Nondiscrimination testing engine</h3>
-          <p class="mt-3 text-brand-charcoal/90">
-            Eligibility, contributions-and-benefits, and key-employee concentration tests run on demand against your
-            current roster and elections. Each run is delivered as an audit-ready PDF you can retain with your plan
-            records.
-          </p>
-        </div>
-        <div class="rounded-lg border border-brand-stone bg-white p-6">
-          <h3 class="font-heading text-xl text-brand-navy">Compliance dashboard</h3>
-          <p class="mt-3 text-brand-charcoal/90">
-            One view shows missing plan documents, NDT status, late invoices, and roster verification timestamps for every
-            client. Instead of chasing details across files, your administrator sees what needs attention at a glance.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-white border-b border-brand-stone" aria-label="Why we built it ourselves">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">Our approach</p>
+      <p class="text-sm tracking-wide uppercase text-brand-green font-semibold">What it means for you</p>
       <h2 class="font-heading text-3xl text-brand-navy mt-2">Why building it ourselves matters</h2>
-      <p class="mt-4 max-w-3xl text-brand-charcoal/90">
-        Most administrators license someone else's software and pass the cost and the limitations on to you. We made a
-        deliberate choice to own the platform end to end, and that decision shapes the service you receive.
-      </p>
       <div class="mt-10 grid gap-8 md:grid-cols-3 text-brand-charcoal/90">
-        <div class="rounded-lg border border-brand-stone bg-brand-sand/30 p-6">
+        <div class="rounded-lg border border-brand-stone bg-white p-6">
           <h3 class="font-heading text-xl text-brand-navy">No third-party administrator fees</h3>
-          <p class="mt-3">
-            We do not pay an outside administrator to run your plan, so that cost is not built into what you pay us. Your
-            combined fee covers the full platform rather than a markup on someone else's product.
-          </p>
+          <p class="mt-3">We do not pay an outside administrator to run your plan, so that cost is not built into what you pay us. Your fee covers the full service, not a markup on someone else's product.</p>
         </div>
-        <div class="rounded-lg border border-brand-stone bg-brand-sand/30 p-6">
+        <div class="rounded-lg border border-brand-stone bg-white p-6">
           <h3 class="font-heading text-xl text-brand-navy">Faster fixes and changes</h3>
-          <p class="mt-3">
-            When a regulation changes or a workflow needs improvement, we ship the change ourselves. You are not waiting
-            in a vendor support queue for a fix that affects your FICA savings or your filing deadlines.
-          </p>
+          <p class="mt-3">When a rule changes or something needs improving, we ship the change ourselves. You are not waiting on a vendor for a fix that affects your savings or your filing deadlines.</p>
         </div>
-        <div class="rounded-lg border border-brand-stone bg-brand-sand/30 p-6">
+        <div class="rounded-lg border border-brand-stone bg-white p-6">
           <h3 class="font-heading text-xl text-brand-navy">Tighter control of your data</h3>
-          <p class="mt-3">
-            Your roster, Social Security numbers, and payroll figures stay within a system we control. There is no outside
-            vendor holding that data, which keeps the security boundary clear and accountable.
-          </p>
+          <p class="mt-3">Your roster, Social Security numbers, and payroll figures stay within a system we control. No outside vendor holds that data, which keeps the security boundary clear and accountable.</p>
         </div>
       </div>
     </div>
@@ -281,8 +193,8 @@ const features = [
   <section class="bg-brand-navy" aria-label="Final call to action">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
-        <h2 class="font-heading text-2xl text-white">Ready to see the platform in action?</h2>
-        <p class="text-white/85 mt-1">We will walk you through it and tailor everything to your roster.</p>
+        <h2 class="font-heading text-2xl text-white">Ready to hand off the administration?</h2>
+        <p class="text-white/85 mt-1">We will walk you through exactly what we handle and what stays on your side.</p>
       </div>
       <div><CTARow primaryLabel="Talk to an expert" primaryTo="/contact" /></div>
     </div>
