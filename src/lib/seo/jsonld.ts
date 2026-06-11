@@ -386,8 +386,12 @@ export function article(input: {
     datePublished: input.datePublished,
     dateModified: input.datePublished,
     image: input.image.startsWith("http") ? input.image : `${SITE_URL}${input.image}`,
-    author: { "@id": `${SITE_URL}/#founder` },
-    publisher: { "@id": `${SITE_URL}/#organization` },
+    author: { "@type": "Person", name: FOUNDER.name, url: `${SITE_URL}/about` },
+    publisher: {
+      "@type": "Organization",
+      name: BUSINESS_NAME,
+      logo: { "@type": "ImageObject", url: LOGO_URL },
+    },
     isPartOf: { "@id": `${SITE_URL}/#website` },
     inLanguage: "en-US",
   };

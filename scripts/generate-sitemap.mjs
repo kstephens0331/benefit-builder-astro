@@ -71,33 +71,9 @@ xml += `</urlset>\n`;
 writeFileSync(join(DIST, "sitemap.xml"), xml, "utf8");
 console.log(`[sitemap] wrote dist/sitemap.xml with ${includedRoutes.length + blogPosts.length} URLs`);
 
-// sitemap-images.xml (separate, for Google image search)
-let img = `<?xml version="1.0" encoding="UTF-8"?>\n`;
-img += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
-for (const r of includedRoutes) {
-  if (!r.ogImage) continue;
-  img += `  <url>\n`;
-  img += `    <loc>${SITE_URL}${r.path}</loc>\n`;
-  img += `    <image:image>\n`;
-  img += `      <image:loc>${SITE_URL}${r.ogImage}</image:loc>\n`;
-  img += `      <image:title>${escapeXml(r.title)}</image:title>\n`;
-  img += `      <image:caption>${escapeXml(r.description)}</image:caption>\n`;
-  img += `    </image:image>\n`;
-  img += `  </url>\n`;
-}
-for (const p of blogPosts) {
-  img += `  <url>\n`;
-  img += `    <loc>${SITE_URL}/blog/${p.slug}</loc>\n`;
-  img += `    <image:image>\n`;
-  img += `      <image:loc>${SITE_URL}${p.image}</image:loc>\n`;
-  img += `      <image:title>${escapeXml(p.title)}</image:title>\n`;
-  img += `      <image:caption>${escapeXml(p.excerpt)}</image:caption>\n`;
-  img += `    </image:image>\n`;
-  img += `  </url>\n`;
-}
-img += `</urlset>\n`;
-writeFileSync(join(DIST, "sitemap-images.xml"), img, "utf8");
-console.log(`[sitemap] wrote dist/sitemap-images.xml`);
+// Note: images are included inline in sitemap.xml above (image:image), so we no
+// longer emit a separate sitemap-images.xml. A page in two sitemaps is an audit
+// warning, and the single sitemap with inline images is the recommended form.
 
 // robots.txt
 const robots = `# robots.txt for ${SITE_URL}
@@ -134,7 +110,6 @@ User-agent: PerplexityBot
 Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
-Sitemap: ${SITE_URL}/sitemap-images.xml
 `;
 writeFileSync(join(DIST, "robots.txt"), robots, "utf8");
 console.log(`[sitemap] wrote dist/robots.txt`);

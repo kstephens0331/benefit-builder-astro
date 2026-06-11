@@ -18,7 +18,7 @@ const STATIC_ROUTES: RouteDescriptor[] = [
     path: "/",
     title: "Pre-Tax Benefits Administration | Benefit Builder LLC",
     description:
-      "Section 125 cafeteria plan administration that boosts take-home pay, lowers payroll tax, and keeps employers fully compliant. Texas-based, all-inclusive monthly fee.",
+      "Section 125 cafeteria plan administration that boosts take-home pay, lowers payroll tax, and keeps employers compliant. Texas-based, all-inclusive monthly fee.",
     ogImage: "/og/og-home.png",
     priority: 1.0,
     changefreq: "weekly",
@@ -26,7 +26,7 @@ const STATIC_ROUTES: RouteDescriptor[] = [
   },
   {
     path: "/services",
-    title: "Benefits Services for Employers and Brokers | Benefit Builder LLC",
+    title: "Benefits Services for Employers & Brokers | Benefit Builder",
     description:
       "Section 125, supplemental benefits, payroll integration, NDT, and compliance services for employers and brokers nationwide.",
     ogImage: "/og/og-services.png",
@@ -68,7 +68,7 @@ const STATIC_ROUTES: RouteDescriptor[] = [
     path: "/savings-calculator",
     title: "Section 125 Savings Calculator | Benefit Builder LLC",
     description:
-      "Estimate FICA savings and net pay impact for your team in seconds. No signup required.",
+      "Estimate your Section 125 FICA savings and employee net-pay impact in seconds. Free, no signup, with 2026 federal and state tax rates built in.",
     ogImage: "/og/og-calculator.png",
     priority: 0.8,
     changefreq: "monthly",
@@ -98,7 +98,7 @@ const STATIC_ROUTES: RouteDescriptor[] = [
     path: "/partners",
     title: "Become a Broker Partner | Benefit Builder LLC",
     description:
-      "Join our broker partner network. Co-branded materials, NDT support, and you keep your commissions.",
+      "Join the Benefit Builder broker partner network. Co-branded enrollment materials, bundled NDT and compliance support, and you keep 100% of your commissions.",
     ogImage: "/og/og-partners.png",
     priority: 0.7,
     changefreq: "monthly",
@@ -118,7 +118,7 @@ const STATIC_ROUTES: RouteDescriptor[] = [
     path: "/legal/privacy",
     title: "Privacy Policy | Benefit Builder LLC",
     description:
-      "How Benefit Builder LLC collects, uses, and protects personal data. CCPA + GDPR aligned.",
+      "How Benefit Builder LLC collects, uses, and protects your personal data and our data retention practices, plus your privacy rights. CCPA and GDPR aligned.",
     ogImage: "/og/og-privacy.png",
     priority: 0.3,
     changefreq: "yearly",
@@ -128,7 +128,7 @@ const STATIC_ROUTES: RouteDescriptor[] = [
     path: "/legal/terms",
     title: "Terms of Service | Benefit Builder LLC",
     description:
-      "Service terms governing use of Benefit Builder LLC's website and services.",
+      "Terms of service for the Benefit Builder LLC website and services: disclaimers, limitation of liability, intellectual property, and governing law.",
     ogImage: "/og/og-terms.png",
     priority: 0.3,
     changefreq: "yearly",

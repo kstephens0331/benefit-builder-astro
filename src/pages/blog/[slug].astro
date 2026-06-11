@@ -8,7 +8,6 @@ import { getAllSlugs, getPost, getRelatedPosts } from "../../lib/blog/posts";
 import { extractHeadings, readTimeMinutes, formatDateUTC } from "../../lib/blog/markdown";
 import { markdownToHtml } from "../../lib/markdownToHtml";
 import { article, webPage, breadcrumbList } from "../../lib/seo/jsonld";
-import { BUSINESS_NAME } from "../../lib/seo/site";
 
 export function getStaticPaths() {
   return getAllSlugs().map((slug) => ({ params: { slug } }));
@@ -36,7 +35,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={`${post.title} | ${BUSINESS_NAME}`} description={post.excerpt} path={path} image={post.image} imageAlt={post.title} type="article" preloadImage={displayImage} jsonLd={jsonLd}>
+<Base title={post.title} description={post.excerpt} path={path} image={post.image} imageAlt={post.title} type="article" preloadImage={displayImage} jsonLd={jsonLd}>
   <Breadcrumbs crumbs={crumbs} />
 
   <article class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">

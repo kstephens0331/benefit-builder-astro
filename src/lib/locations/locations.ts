@@ -647,11 +647,11 @@ export function getAllCityPaths(): string[] {
 }
 
 export function stateTitle(s: StateLoc): string {
-  return `Section 125 Pre-Tax Benefits in ${s.name} | Benefit Builder LLC`;
+  return `Section 125 Pre-Tax Benefits in ${s.name}`;
 }
 
 export function cityTitle(c: CityLoc): string {
-  return `Section 125 Pre-Tax Benefits for ${c.city}, ${c.code} Employers | Benefit Builder LLC`;
+  return `Section 125 Pre-Tax Benefits in ${c.city}, ${c.code}`;
 }
 
 // RouteDescriptors for the hub + every state + every city. Appended to ROUTES so
