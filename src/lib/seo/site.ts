@@ -2,21 +2,21 @@ export const SITE_URL = "https://benefitbuilderllc.com";
 export const BUSINESS_NAME = "Benefit Builder LLC";
 export const SHORT_NAME = "Benefit Builder";
 
-export const PHONE = "+1-972-741-5663";
-export const PHONE_DISPLAY = "(972) 741-5663";
+export const PHONE = "+1-817-296-5547";
+export const PHONE_DISPLAY = "(817) 296-5547";
 export const EMAIL = "admin@benefitbuilderllc.com";
 
 export const ADDRESS = {
-  street: "14132 FM 1097 Rd West, Suite #300, PMB #164",
-  city: "Willis",
+  street: "206A S Loop 336 W Box 322",
+  city: "Conroe",
   region: "TX",
-  postal: "77318",
+  postal: "77304-3300",
   country: "US",
 } as const;
 
 export const GEO = {
-  latitude: 30.4313,
-  longitude: -95.4824,
+  latitude: 30.3047,
+  longitude: -95.4827,
 } as const;
 
 export const HOURS = "Mo-Fr 09:00-17:00";

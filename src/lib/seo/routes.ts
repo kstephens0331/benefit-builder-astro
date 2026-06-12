@@ -108,7 +108,7 @@ const STATIC_ROUTES: RouteDescriptor[] = [
     path: "/contact",
     title: "Contact Benefit Builder LLC | Quotes Within 1 Business Day",
     description:
-      "Talk to a Texas benefits advisor. Quotes within one business day. (972) 741-5663 or admin@benefitbuilderllc.com.",
+      "Talk to a Texas benefits advisor. Quotes within one business day. (817) 296-5547 or admin@benefitbuilderllc.com.",
     ogImage: "/og/og-contact.png",
     priority: 0.8,
     changefreq: "monthly",
