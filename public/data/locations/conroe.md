@@ -8,7 +8,7 @@ For a construction firm running crews around Lake Conroe, a clinic staffing up i
 
 ## A local administrator, based in Conroe
 
-Benefit Builder is based in the Conroe and Willis area of Montgomery County. That means Conroe employers are not handing their plan to a national call center three time zones away. They work with a local, Texas-based team that knows this market and answers the phone when a payroll question comes up mid-cycle.
+Benefit Builder is based in Conroe, in Montgomery County. That means Conroe employers are not handing their plan to a national call center three time zones away. They work with a local, Texas-based team that knows this market and answers the phone when a payroll question comes up mid-cycle.
 
 Local matters in administration. When a controller in Montgomery or an HR lead in Spring needs a salary reduction agreement corrected before the next pay run, they reach a person who understands their plan, not a ticket queue. Quotes go out within one business day, and the same team that quotes the plan is the team that runs it month after month. For Conroe employers, that proximity removes the friction that usually comes with outsourced benefits work.
 

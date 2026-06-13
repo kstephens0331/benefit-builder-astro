@@ -288,7 +288,7 @@ export const CITIES: CityLoc[] = [
       {
         question: "Are you local to Conroe?",
         answer:
-          "Yes. Benefit Builder is based in the Conroe and Willis area of Montgomery County. We serve Conroe, The Woodlands, Willis, Montgomery, Spring, and the greater Houston area.",
+          "Yes. Benefit Builder is based in Conroe, in Montgomery County. We serve Conroe, The Woodlands, Willis, Montgomery, Spring, and the greater Houston area.",
       },
       {
         question: "How do savings work in Texas with no state income tax?",

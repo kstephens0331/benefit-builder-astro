@@ -78,7 +78,7 @@ Plain-language education on Section 125 for employers and the insurance agents w
 Benefit Builder administers Section 125 plans across nine states. Section 125 savings come from FICA (7.65%), federal income tax, and the state's income tax, so the savings differ by state.
 
 - Missouri: flat 4.7% state income tax (standard deduction $16,100). Cities served include Cape Girardeau, Poplar Bluff, and Festus. /locations/missouri
-- Texas: no state income tax, so savings come from federal income tax and the 7.65% FICA. Benefit Builder's home state, based in the Conroe and Willis area. Cities served include Conroe, Houston, Baytown, and Laredo. /locations/texas
+- Texas: no state income tax, so savings come from federal income tax and the 7.65% FICA. Benefit Builder's home state, based in Conroe. Cities served include Conroe, Houston, Baytown, and Laredo. /locations/texas
 - Oklahoma: graduated state income tax topping out at 4.75% (standard deduction $6,520). Durant. /locations/oklahoma
 - New Mexico: graduated state income tax from 1.7% to 5.9% (standard deduction $16,100). Farmington and the Four Corners. /locations/new-mexico
 - Ohio: flat 3.5% state income tax (no standard deduction). Dayton. /locations/ohio

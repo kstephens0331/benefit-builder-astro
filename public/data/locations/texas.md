@@ -22,7 +22,7 @@ For Texas employers, this means the pre-tax benefits stay defensible without add
 
 ## Who we serve in Texas
 
-Benefit Builder is a Texas firm, based in the Conroe and Willis area north of Houston. This is our home state, and we administer cafeteria plans for employers across it. The employers who benefit most from Section 125 tend to have steady payrolls and a workforce that values pre-tax benefits, and Texas has plenty of them.
+Benefit Builder is a Texas firm, based in Conroe, north of Houston. This is our home state, and we administer cafeteria plans for employers across it. The employers who benefit most from Section 125 tend to have steady payrolls and a workforce that values pre-tax benefits, and Texas has plenty of them.
 
 We work with public and private schools, where pre-tax benefits stretch tight education budgets. We work with healthcare and senior care providers, including clinics, nursing facilities, and home care agencies that run large hourly staffs. We work with manufacturing operations and the skilled trades, where payroll tax savings add up across shop floors and job sites. We work with trucking and logistics companies, whose driver payrolls are a natural fit for FICA-efficient benefit design. And we work with professional services firms, from accounting and legal offices to engineering and consulting practices.
 

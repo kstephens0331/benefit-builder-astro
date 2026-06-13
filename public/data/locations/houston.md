@@ -16,7 +16,7 @@ What separates a plan that delivers from one that underperforms is participation
 
 ## Serving the greater Houston area
 
-Benefit Builder serves employers across Houston and the surrounding communities, including Pasadena, Pearland, Sugar Land, and Baytown. We are based just north of the metro in the Conroe and Willis area of Montgomery County, which keeps us close enough to support Houston employers directly while serving the wider region around the city. Whether a business sits inside the Loop, out toward the suburbs, or in one of the industrial corridors ringing the metro, the administration runs the same way.
+Benefit Builder serves employers across Houston and the surrounding communities, including Pasadena, Pearland, Sugar Land, and Baytown. We are based just north of the metro in Conroe, in Montgomery County, which keeps us close enough to support Houston employers directly while serving the wider region around the city. Whether a business sits inside the Loop, out toward the suburbs, or in one of the industrial corridors ringing the metro, the administration runs the same way.
 
 ## What Benefit Builder handles for Houston employers
 
