@@ -66,9 +66,9 @@ const STATIC_ROUTES: RouteDescriptor[] = [
   },
   {
     path: "/savings-calculator",
-    title: "Section 125 Savings Calculator | Benefit Builder LLC",
+    title: "Section 125 Plan Calculator | Benefit Builder LLC",
     description:
-      "Estimate your Section 125 FICA savings and employee net-pay impact in seconds. Free, no signup, with 2026 federal and state tax rates built in.",
+      "See what a Section 125 cafeteria plan could offer your team. Estimate the pre-tax benefit and take-home impact in seconds. Free, no signup, 2026 rates built in.",
     ogImage: "/og/og-calculator.png",
     priority: 0.8,
     changefreq: "monthly",

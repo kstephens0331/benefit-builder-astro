@@ -13,7 +13,7 @@ const crumbs = [
 const breadcrumb = breadcrumbList(crumbs);
 const jsonLd = [
   webApplication({
-    name: "Section 125 Savings Calculator",
+    name: "Section 125 Plan Calculator",
     description: r.description,
     url: `https://benefitbuilderllc.com${r.path}`,
     applicationCategory: "FinanceApplication",
@@ -34,17 +34,42 @@ function calc(employees: number, avgGross: number, frequency: string, stateCode:
 const init = calc(50, 2500, "biweekly", "TX");
 const fmtUSD = (n: number) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(Math.round(n));
 const fmtPct = (n: number) => `${(n * 100).toFixed(1)}%`;
+
+// Anonymized client examples shown as proof under the calculator. Benefit-led:
+// the plan and participation are the story, not tax savings.
+const caseStudies = [
+  {
+    tag: "Industrial manufacturer",
+    title: "About 120 employees",
+    stat: "108 employees enrolled in pre-tax benefits",
+    body: "A growing manufacturer needed benefits strong enough to compete for skilled labor, without adding work to a lean office. We built and now run their Section 125 cafeteria plan, handled enrollment on the floor with plain-language education, and included every compliance piece: the plan document, adoption agreement, salary reduction forms, and annual nondiscrimination testing. The result was a stronger recruiting and retention story, with one predictable monthly fee and no paperwork on the employer.",
+  },
+  {
+    tag: "Nursing and rehabilitation center",
+    title: "About 40 employees",
+    stat: "Full enrollment across the staff",
+    body: "A senior care provider wanted a benefit that would help retain experienced caregivers in a high-turnover field. We set up their Section 125 cafeteria plan and guided every employee through enrollment across shifts, with all documents and annual testing prepared and filed for them. Every eligible employee enrolled, leadership gained a real retention tool, and the plan now runs quietly in the background.",
+  },
+  {
+    tag: "HVAC contractor",
+    title: "10 employees",
+    stat: "All 10 employees enrolled",
+    body: "A small contractor wanted to offer the kind of benefits people expect from a large employer, and assumed a formal plan would be too costly or complex for a small crew. We stood up a Section 125 cafeteria plan sized for the team, with the same bundled compliance and hands-on enrollment the large groups receive, all for one monthly fee with no setup charge. The owner now has a competitive benefit that helps keep good technicians, proof the program works at any size.",
+  },
+];
 ---
 
 <Base title={r.title} description={r.description} path={r.path} image={r.ogImage} jsonLd={jsonLd}>
   <Breadcrumbs crumbs={crumbs} />
 
   <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-    <p class="text-sm uppercase tracking-wide text-brand-green font-semibold">Savings calculator</p>
-    <h1 class="font-heading text-4xl md:text-5xl text-brand-navy mt-2">Estimate Your Section 125 Savings</h1>
+    <p class="text-sm uppercase tracking-wide text-brand-green font-semibold">Section 125 plan calculator</p>
+    <h1 class="font-heading text-4xl md:text-5xl text-brand-navy mt-2">Estimate Your Section 125 Plan</h1>
     <p class="mt-4 max-w-3xl text-brand-charcoal/90 text-lg">
-      Enter your headcount, average gross pay, pay frequency, and state. We show the estimated annual savings for both
-      the employer and employees, net of our 8% administration fee. No signup required.
+      A Section 125 cafeteria plan lets your employees pay for qualified benefits with pre-tax dollars, so they get more
+      from every paycheck and you strengthen your benefits offering. Enter your headcount, average gross pay, pay
+      frequency, and state to see the estimated annual impact for your team and your business, net of our 8%
+      administration fee. No signup required.
     </p>
   </section>
 
@@ -106,6 +131,29 @@ const fmtPct = (n: number) => `${(n * 100).toFixed(1)}%`;
           administration fee. Actual results vary with filing status, dependents, the Social Security wage base ($184,500
           for 2026), and local taxes. Contact us for a precise quote tailored to your roster.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border-b border-brand-stone" aria-label="Employer examples">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <p class="text-sm uppercase tracking-wide text-brand-green font-semibold">From 10 to 120 employees</p>
+      <h2 class="font-heading text-3xl text-brand-navy mt-2">Employers already running Section 125 plans with us</h2>
+      <p class="mt-3 max-w-3xl text-brand-charcoal/90">
+        A look at how businesses of different sizes use Benefit Builder to give their teams pre-tax benefits, with the
+        plan documents, enrollment, and annual compliance handled for them. Company names are withheld for privacy.
+      </p>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {
+          caseStudies.map((c) => (
+            <article class="rounded-lg border border-brand-stone bg-brand-sand/20 p-6 flex flex-col">
+              <span class="text-xs font-semibold uppercase tracking-wide text-brand-green">{c.tag}</span>
+              <h3 class="font-heading text-xl text-brand-navy mt-1">{c.title}</h3>
+              <p class="mt-1 text-sm font-semibold text-brand-navy">{c.stat}</p>
+              <p class="mt-3 text-sm text-brand-charcoal/90 leading-relaxed">{c.body}</p>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>
