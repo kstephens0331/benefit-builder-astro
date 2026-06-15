@@ -43,7 +43,7 @@ function stateFaq(s: StateLoc) {
     },
     {
       question: `What does a Section 125 plan cost a ${s.name} employer?`,
-      answer: `One monthly administration fee covers everything: the plan document, the annual nondiscrimination testing, payroll coordination, support, and employee education. There are no setup fees and no separate testing fees. For most ${s.name} employers the payroll tax savings exceed the fee, often by a wide margin.`,
+      answer: `One monthly administration fee covers everything: the plan document, the annual nondiscrimination testing, payroll coordination, support, and employee education. There are no setup fees and no separate testing fees. For most ${s.name} employers the value the plan delivers more than covers the fee.`,
     },
     {
       question: `Can our current insurance agent stay involved?`,
@@ -51,7 +51,7 @@ function stateFaq(s: StateLoc) {
     },
     {
       question: `How long does it take to set up a plan in ${s.name}?`,
-      answer: `Most plans move quickly. We start with a short discovery call, design the plan around your workforce and pay frequency, prepare the documents for signature, and schedule enrollment. We handle the employee education sessions and the annual testing from there. You can estimate your numbers first with the savings calculator or request a quote.`,
+      answer: `Most plans move quickly. We start with a short discovery call, design the plan around your workforce and pay frequency, prepare the documents for signature, and schedule enrollment. We handle the employee education sessions and the annual testing from there. You can estimate your numbers first with the plan calculator or request a quote.`,
     },
   ];
 }
@@ -99,14 +99,14 @@ const jsonLd = [
       <h1 class="font-heading text-4xl md:text-5xl text-white drop-shadow mt-2">Section 125 Pre-Tax Benefits in {s.name}</h1>
       <p class="mt-4 max-w-3xl text-white/90 text-lg">{s.intro}</p>
       <div class="mt-6">
-        <CTARow primaryLabel="Get a quote" primaryTo="/contact" secondaryTo="/savings-calculator" secondaryLabel="Estimate your savings" />
+        <CTARow primaryLabel="Get a quote" primaryTo="/contact" secondaryTo="/savings-calculator" secondaryLabel="Estimate your plan" />
       </div>
     </div>
   </section>
 
   <section class="bg-white border-y border-brand-stone">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="font-heading text-3xl text-brand-navy">What the savings look like in {s.name}</h2>
+      <h2 class="font-heading text-3xl text-brand-navy">How a Section 125 plan works in {s.name}</h2>
       <p class="mt-4 max-w-3xl text-brand-charcoal/90">{s.taxNote}</p>
       <div class="mt-6 grid gap-6 sm:grid-cols-2">
         <div class="rounded-lg border border-brand-stone bg-brand-sand/40 p-6">
@@ -123,7 +123,7 @@ const jsonLd = [
       </div>
       <p class="mt-4 text-sm text-brand-charcoal/70">
         Estimates assume single filing status with zero dependents. Run your real roster with the{" "}
-        <a class="text-brand-green underline" href="/savings-calculator">savings calculator</a>.
+        <a class="text-brand-green underline" href="/savings-calculator">plan calculator</a>.
       </p>
     </div>
   </section>

@@ -18,7 +18,7 @@ const STATIC_ROUTES: RouteDescriptor[] = [
     path: "/",
     title: "Pre-Tax Benefits Administration | Benefit Builder LLC",
     description:
-      "Section 125 cafeteria plan administration that boosts take-home pay, lowers payroll tax, and keeps employers compliant. Texas-based, all-inclusive monthly fee.",
+      "Section 125 cafeteria plan administration: valuable pre-tax benefits for your team, a stronger benefits offering, and full compliance handled. Texas-based, all-inclusive monthly fee.",
     ogImage: "/og/og-home.png",
     priority: 1.0,
     changefreq: "weekly",
@@ -38,7 +38,7 @@ const STATIC_ROUTES: RouteDescriptor[] = [
     path: "/services/employers",
     title: "Pre-Tax Benefits for Employers | Benefit Builder LLC",
     description:
-      "Cut FICA payroll tax up to 7.65%, raise employee take-home pay, and keep your Section 125 plan IRS-compliant with bundled NDT and plan documents.",
+      "Give your team valuable pre-tax benefits with a Section 125 cafeteria plan, fully administered and IRS-compliant with bundled NDT and plan documents. Texas-based.",
     ogImage: "/og/og-employers.png",
     priority: 0.9,
     changefreq: "monthly",

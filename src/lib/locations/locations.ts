@@ -202,7 +202,7 @@ export const CITIES: CityLoc[] = [
       {
         question: "How much does a Cape Girardeau employee save?",
         answer:
-          "A qualified pre-tax election avoids federal income tax, the 7.65% FICA, and Missouri's flat 4.7% state income tax. The exact figure depends on pay and participation. Run your roster on the savings calculator for an estimate.",
+          "A qualified pre-tax election avoids federal income tax, the 7.65% FICA, and Missouri's flat 4.7% state income tax. The exact figure depends on pay and participation. Run your roster on the plan calculator for an estimate.",
       },
     ],
   },
