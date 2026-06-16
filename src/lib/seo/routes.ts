@@ -145,6 +145,16 @@ const STATIC_ROUTES: RouteDescriptor[] = [
     changefreq: "weekly",
     includeInSitemap: true,
   },
+  {
+    path: "/faq",
+    title: "Section 125 Plan FAQ | Benefit Builder LLC",
+    description:
+      "Answers to the questions employers ask most about Section 125 cafeteria plans: what is included, what they cost, compliance, enrollment, and getting started.",
+    ogImage: "/og/og-faq.png",
+    priority: 0.6,
+    changefreq: "monthly",
+    includeInSitemap: true,
+  },
 ];
 
 export const ROUTES: RouteDescriptor[] = [

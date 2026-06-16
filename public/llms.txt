@@ -1,14 +1,14 @@
 # Benefit Builder LLC
 
-> Texas-based Section 125 cafeteria plan administrator. We help employers cut FICA payroll tax, raise employee take-home pay, and stay IRS-compliant with bundled plan documents, NDT, and payroll integration.
+> Texas-based Section 125 cafeteria plan administrator. We help employers offer stronger pre-tax benefits to their teams and stay IRS-compliant, with bundled plan documents, nondiscrimination testing, and payroll integration, all for one monthly fee.
 
-Founded 2019, family-run, headquartered in Conroe, TX. Serves employers and brokers nationwide. All-inclusive monthly fee, no surprise costs.
+Founded 2019, family-run, headquartered in Conroe, TX. Serves employers and brokers nationwide. All-inclusive monthly fee, no surprise costs. A Section 125 cafeteria plan lets employees pay for qualified benefits with pre-tax dollars; the lower payroll cost is a rolled-in result, not the product.
 
 ## What we do
 
-- Section 125 Premium Only Plan (POP) administration
-- FICA savings analysis for employers
-- Non-discrimination testing (NDT)
+- Section 125 cafeteria plan and Premium Only Plan (POP) administration
+- Pre-tax benefit deductions through payroll
+- Nondiscrimination testing (NDT)
 - Plan documents, adoption agreements, salary reduction agreements
 - Payroll integration and roster sync
 - HSA and FSA administration
@@ -19,19 +19,42 @@ Founded 2019, family-run, headquartered in Conroe, TX. Serves employers and brok
 
 - [Home](https://benefitbuilderllc.com/): Overview
 - [Services](https://benefitbuilderllc.com/services): All services
-- [For Employers](https://benefitbuilderllc.com/services/employers): Employer-focused pre-tax benefits
+- [For Employers](https://benefitbuilderllc.com/services/employers): Pre-tax benefits for employers
 - [For Brokers](https://benefitbuilderllc.com/services/brokers): Broker partnership program
+- [Industries](https://benefitbuilderllc.com/industries): Section 125 plans by industry
 - [Platform](https://benefitbuilderllc.com/platform): In-house administration platform
-- [Savings Calculator](https://benefitbuilderllc.com/savings-calculator): Estimate FICA savings
+- [Plan Calculator](https://benefitbuilderllc.com/savings-calculator): Estimate the impact of a Section 125 plan, with client examples
 - [Compliance](https://benefitbuilderllc.com/compliance): Bundled compliance services
+- [FAQ](https://benefitbuilderllc.com/faq): Section 125 plan questions answered
 - [About](https://benefitbuilderllc.com/about): Company and team
 - [Partners](https://benefitbuilderllc.com/partners): Broker partner network
 - [Contact](https://benefitbuilderllc.com/contact): Get a quote in 1 business day
 
+## Industries we serve
+
+Section 125 cafeteria plan administration tailored to how each industry hires, pays, and works.
+
+- [Manufacturing](https://benefitbuilderllc.com/industries/manufacturing): Pre-tax benefits for production teams and skilled labor
+- [Senior Care](https://benefitbuilderllc.com/industries/senior-care): Nursing homes, assisted living, hospice, home care
+- [Trades and Contractors](https://benefitbuilderllc.com/industries/trades-contractors): HVAC, electrical, roofing, plumbing
+- [Schools and Education](https://benefitbuilderllc.com/industries/schools-education): Faculty and support staff, school pay calendars
+- [Healthcare](https://benefitbuilderllc.com/industries/healthcare): Clinics, dental, physician practices, home care
+- [Restaurants and Hospitality](https://benefitbuilderllc.com/industries/restaurants-hospitality): Hourly and tipped staff, hotels, food service
+- [Retail](https://benefitbuilderllc.com/industries/retail): Stores, shops, grocers
+- [Transportation and Logistics](https://benefitbuilderllc.com/industries/transportation-logistics): Trucking, delivery, fleets
+- [Agriculture](https://benefitbuilderllc.com/industries/agriculture): Farms, ranches, ag businesses
+- [Automotive](https://benefitbuilderllc.com/industries/automotive): Dealerships, body shops, repair
+- [Professional Services](https://benefitbuilderllc.com/industries/professional-services): Accounting, legal, insurance, title, real estate
+- [Nonprofits and Faith-Based](https://benefitbuilderllc.com/industries/nonprofits): Churches, ministries, charities
+- [Construction](https://benefitbuilderllc.com/industries/construction): General contractors and builders
+- [Property Management](https://benefitbuilderllc.com/industries/property-management): Apartment communities, real estate operators
+
 ## Blog and guides
 
+- [What Employers Get With a Section 125 Plan](https://benefitbuilderllc.com/blog/what-employers-get-with-a-section-125-plan): Plain-language overview of the benefit
+- [Section 125 Plans by Industry](https://benefitbuilderllc.com/blog/section-125-plans-by-industry): Where a plan fits best, by field
 - [Section 125 Cafeteria Plan Basics](https://benefitbuilderllc.com/blog/section-125-cafeteria-plan-basics): Plain-language guide for employers
-- [How Pre-Tax Benefits Lower Employer FICA](https://benefitbuilderllc.com/blog/how-fica-savings-work-for-employers): The 7.65% FICA savings mechanism
+- [How Pre-Tax Benefits Lower Employer FICA](https://benefitbuilderllc.com/blog/how-fica-savings-work-for-employers): The 7.65% FICA mechanism, explained
 - [Which Benefits Qualify for Section 125](https://benefitbuilderllc.com/blog/which-benefits-qualify-for-section-125): Premiums, FSAs, HSA, dependent care
 - [Premium Only Plans (POP) Explained](https://benefitbuilderllc.com/blog/premium-only-plan-pop-explained): The simplest Section 125 plan
 - [Section 125 Compliance Checklist for Brokers](https://benefitbuilderllc.com/blog/section-125-compliance-checklist-for-brokers): Documents and testing
@@ -40,7 +63,7 @@ Founded 2019, family-run, headquartered in Conroe, TX. Serves employers and brok
 
 ## Service areas
 
-Benefit Builder administers Section 125 plans across nine states, with savings detail specific to each state's income tax.
+Benefit Builder administers Section 125 plans across nine states, with detail specific to each state's income tax.
 
 - [Service Areas](https://benefitbuilderllc.com/locations): Hub for all states and cities
 - [Missouri](https://benefitbuilderllc.com/locations/missouri): Flat 4.7% state income tax; cities include Cape Girardeau, Poplar Bluff, Festus

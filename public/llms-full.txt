@@ -6,11 +6,11 @@ Benefit Builder LLC is a Texas-based, family-run Section 125 cafeteria plan admi
 
 ## What we do
 
-We administer Section 125 cafeteria plans (Premium Only Plans / POP) for employers. The plan lets employees pay for qualifying benefits with pre-tax dollars, which reduces the employer's FICA payroll tax liability up to 7.65% of participating wages and raises employee take-home pay.
+We administer Section 125 cafeteria plans (including Premium Only Plans / POP) for employers. The plan lets employees pay for qualifying benefits with pre-tax dollars, so they keep more of each paycheck and the employer offers a stronger benefits program. Because the deductions are pre-tax, the employer's payroll costs come down as well, which is a rolled-in result rather than the product.
 
 Our work covers the full administrative lifecycle:
 
-- Pre-implementation FICA savings analysis. We model the employer's expected payroll tax savings and per-employee take-home pay impact before signing.
+- Pre-implementation plan modeling. We model the employer's benefit impact and the per-employee take-home effect before signing.
 - Plan documents. We prepare and maintain the Section 125 plan document, adoption agreement, and salary reduction agreement so the plan is IRS-compliant.
 - Non-discrimination testing (NDT). We run annual NDT to confirm the plan does not discriminate in favor of key employees or highly compensated employees.
 - Payroll integration. We sync rosters and configure payroll deduction codes with common payroll providers.
@@ -37,7 +37,7 @@ Our work covers the full administrative lifecycle:
 ## Services we administer
 
 - Section 125 Cafeteria Plan Administration (Premium Only Plan / POP)
-- FICA Savings Analysis
+- Pre-tax benefit plan design and modeling
 - Non-Discrimination Testing for Section 125
 - Plan Document, Adoption Agreement, Salary Reduction Agreement preparation
 - Payroll Integration and roster sync
@@ -51,7 +51,35 @@ Our work covers the full administrative lifecycle:
 
 ## Industries we serve
 
-We work with small and mid-size employers across the United States, with concentration in Texas. Common industries include healthcare, manufacturing, professional services, hospitality, construction, and trades.
+We work with small and mid-size employers across the United States, with concentration in Texas. We publish a Section 125 plan page for each industry we serve, tailored to how that field hires, pays, and works.
+
+- Manufacturing: production teams and skilled labor, weekly and biweekly payroll. /industries/manufacturing
+- Senior Care: nursing homes, assisted living, hospice, home care; enrollment across shifts. /industries/senior-care
+- Trades and Contractors: HVAC, electrical, roofing, plumbing. /industries/trades-contractors
+- Schools and Education: faculty and support staff, monthly and semimonthly school pay calendars. /industries/schools-education
+- Healthcare: clinics, dental offices, physician practices, home care. /industries/healthcare
+- Restaurants and Hospitality: hourly and tipped staff, hotels, food service. /industries/restaurants-hospitality
+- Retail: stores, shops, grocers. /industries/retail
+- Transportation and Logistics: trucking, delivery, fleets. /industries/transportation-logistics
+- Agriculture: farms, ranches, ag businesses. /industries/agriculture
+- Automotive: dealerships, body shops, repair. /industries/automotive
+- Professional Services: accounting, legal, insurance, title, real estate. /industries/professional-services
+- Nonprofits and Faith-Based: churches, ministries, charities. /industries/nonprofits
+- Construction: general contractors and builders. /industries/construction
+- Property Management: apartment communities, real estate operators. /industries/property-management
+- Industries hub: /industries
+
+## Frequently asked questions
+
+Full FAQ at /faq. Common answers:
+
+- What is a Section 125 cafeteria plan? A written employee benefit plan that lets employees pay for qualified benefits with pre-tax dollars through payroll. It is the pre-tax wrapper around benefits the employer already offers.
+- What does it cost? One monthly administration fee covers the plan document, annual nondiscrimination testing, payroll coordination, support, and the platform. No setup fees and no separate testing fees.
+- Which benefits can be paid pre-tax? Group health, dental, and vision premiums, HSA contributions, health and dependent care FSAs, and group term life within IRS limits.
+- What compliance is included? The written plan document, adoption agreement, per-employee salary reduction forms, and annual nondiscrimination testing, all prepared and filed by Benefit Builder.
+- What is the employer's role each month? Send a census at setup and when the team changes, sign the agreements, and confirm the roster monthly. Benefit Builder handles the rest.
+- Can our insurance agent or broker stay involved? Yes. Agents keep 100% of their commissions and stay the agent of record while Benefit Builder runs the administration and compliance.
+- How long does setup take? Most plans move quickly: a short discovery call, plan design around your workforce and pay frequency, documents for signature, then scheduled enrollment.
 
 ## Service area
 
@@ -65,6 +93,8 @@ Section 125 cafeteria plan, Premium Only Plan, POP plan, Pre-tax benefits admini
 
 Plain-language education on Section 125 for employers and the insurance agents who serve them. Standard public facts only.
 
+- What Employers Get With a Section 125 Plan: a plain-language overview of what the plan delivers, what is included, and how little work it is for the employer. /blog/what-employers-get-with-a-section-125-plan
+- Section 125 Plans by Industry: where a plan fits best across manufacturing, senior care, trades, schools, and more. /blog/section-125-plans-by-industry
 - Section 125 Cafeteria Plan Basics: what a Section 125 plan is, how pre-tax elections work, why employers use them. /blog/section-125-cafeteria-plan-basics
 - How Pre-Tax Benefits Lower Employer FICA Payroll Tax: FICA is 7.65% (Social Security 6.2% to the wage base, Medicare 1.45%); a pre-tax election removes wages from the FICA base, so both employer and employee stop paying 7.65% on those dollars. /blog/how-fica-savings-work-for-employers
 - Which Benefits Qualify for Section 125: insurance premiums, health and dependent care FSAs, HSA contributions, and dependent care assistance qualify; long-term care insurance generally does not. /blog/which-benefits-qualify-for-section-125
@@ -96,10 +126,28 @@ Benefit Builder administers Section 125 plans across nine states. Section 125 sa
 - https://benefitbuilderllc.com/platform
 - https://benefitbuilderllc.com/savings-calculator
 - https://benefitbuilderllc.com/compliance
+- https://benefitbuilderllc.com/faq
 - https://benefitbuilderllc.com/about
 - https://benefitbuilderllc.com/partners
 - https://benefitbuilderllc.com/contact
 - https://benefitbuilderllc.com/blog
+- https://benefitbuilderllc.com/blog/what-employers-get-with-a-section-125-plan
+- https://benefitbuilderllc.com/blog/section-125-plans-by-industry
+- https://benefitbuilderllc.com/industries
+- https://benefitbuilderllc.com/industries/manufacturing
+- https://benefitbuilderllc.com/industries/senior-care
+- https://benefitbuilderllc.com/industries/trades-contractors
+- https://benefitbuilderllc.com/industries/schools-education
+- https://benefitbuilderllc.com/industries/healthcare
+- https://benefitbuilderllc.com/industries/restaurants-hospitality
+- https://benefitbuilderllc.com/industries/retail
+- https://benefitbuilderllc.com/industries/transportation-logistics
+- https://benefitbuilderllc.com/industries/agriculture
+- https://benefitbuilderllc.com/industries/automotive
+- https://benefitbuilderllc.com/industries/professional-services
+- https://benefitbuilderllc.com/industries/nonprofits
+- https://benefitbuilderllc.com/industries/construction
+- https://benefitbuilderllc.com/industries/property-management
 - https://benefitbuilderllc.com/locations
 - https://benefitbuilderllc.com/legal/privacy
 - https://benefitbuilderllc.com/legal/terms

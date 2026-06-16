@@ -5,6 +5,7 @@ import CTARow from "../../components/CTARow.astro";
 import { findRoute } from "../../lib/seo/routes";
 import { service, faqPage, webPage, breadcrumbList, itemList, type FaqQa } from "../../lib/seo/jsonld";
 import { INDUSTRIES, type IndustryLoc } from "../../lib/industries/industries";
+import { INDUSTRY_GENERAL_SUBSET } from "../../lib/faq/faqs";
 
 export async function getStaticPaths() {
   return INDUSTRIES.map((i) => ({ params: { industry: i.slug }, props: { industry: i } }));
@@ -20,7 +21,12 @@ const crumbs = [
   { name: industry.name, href: path },
 ];
 const breadcrumb = breadcrumbList(crumbs);
-const faqs: FaqQa[] = industry.faq;
+// Industry-specific questions first, then the most-asked general Section 125
+// questions, so each page has a robust FAQ (~13) led by its unique content.
+const faqs: FaqQa[] = [
+  ...industry.faq,
+  ...INDUSTRY_GENERAL_SUBSET.map((f) => ({ question: f.question, answer: f.answer })),
+];
 const others = INDUSTRIES.filter((i) => i.slug !== industry.slug);
 const jsonLd = [
   service({
@@ -76,7 +82,8 @@ const jsonLd = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
       <h2 class="font-heading text-3xl text-brand-navy">What is included</h2>
       <p class="mt-3 max-w-3xl text-brand-charcoal/90">
-        Every Section 125 plan we run for {industry.noun} comes with the full set, bundled into one monthly fee.
+        For {industry.noun}, a plan is only as good as the administration behind it. Every Section 125 plan we run
+        comes with the full set, built around how you hire and pay and bundled into one monthly fee:
       </p>
       <ul class="mt-6 grid gap-3 sm:grid-cols-2 text-brand-charcoal/90">
         <li class="rounded-lg border border-brand-stone bg-white p-4">The written Section 125 plan document, drafted to your benefits and pay frequency.</li>
@@ -94,7 +101,10 @@ const jsonLd = [
 
   <section class="bg-white border-b border-brand-stone">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="font-heading text-3xl text-brand-navy">Common questions</h2>
+      <div class="flex flex-wrap items-end justify-between gap-3">
+        <h2 class="font-heading text-3xl text-brand-navy">Common questions</h2>
+        <a href="/faq" class="text-sm font-semibold text-brand-green hover:underline">See all FAQs &rarr;</a>
+      </div>
       <div class="mt-6 grid gap-4 md:grid-cols-2">
         {
           faqs.map((qa) => (
