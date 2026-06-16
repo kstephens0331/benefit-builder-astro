@@ -5,7 +5,12 @@
     "date": "2026-06-09",
     "excerpt": "What a Section 125 plan is, how pre-tax elections work, and why employers use them to lower payroll tax. Plain language, no jargon.",
     "image": "/og/og-blog-section-125-cafeteria-plan-basics.png",
-    "tags": ["Section 125", "Employers", "Pre-Tax Benefits", "Compliance"]
+    "tags": [
+      "Section 125",
+      "Employers",
+      "Pre-Tax Benefits",
+      "Compliance"
+    ]
   },
   {
     "slug": "how-fica-savings-work-for-employers",
@@ -13,7 +18,12 @@
     "date": "2026-06-09",
     "excerpt": "Pre-tax salary reductions shrink the wage base for FICA. Here is how the 7.65% employer share works and what it means for your payroll.",
     "image": "/og/og-blog-how-fica-savings-work-for-employers.png",
-    "tags": ["FICA", "Employers", "Payroll", "Tax Savings"]
+    "tags": [
+      "FICA",
+      "Employers",
+      "Payroll",
+      "Tax Savings"
+    ]
   },
   {
     "slug": "section-125-compliance-checklist-for-brokers",
@@ -21,7 +31,12 @@
     "date": "2026-06-09",
     "excerpt": "Plan document, adoption agreement, salary reduction forms, and annual nondiscrimination testing. A broker-ready Section 125 compliance checklist.",
     "image": "/og/og-blog-section-125-compliance-checklist-for-brokers.png",
-    "tags": ["Brokers", "Compliance", "NDT", "Section 125"]
+    "tags": [
+      "Brokers",
+      "Compliance",
+      "NDT",
+      "Section 125"
+    ]
   },
   {
     "slug": "nondiscrimination-testing-explained-for-agents",
@@ -29,7 +44,12 @@
     "date": "2026-06-09",
     "excerpt": "The three core Section 125 NDT tests, who they protect, and how to spot a plan that could fail before year end. Written for agents.",
     "image": "/og/og-blog-nondiscrimination-testing-explained-for-agents.png",
-    "tags": ["NDT", "Brokers", "Compliance", "Section 125"]
+    "tags": [
+      "NDT",
+      "Brokers",
+      "Compliance",
+      "Section 125"
+    ]
   },
   {
     "slug": "which-benefits-qualify-for-section-125",
@@ -37,7 +57,11 @@
     "date": "2026-06-10",
     "excerpt": "Insurance premiums, FSAs, HSA contributions, and dependent care can run pre-tax through a Section 125 plan. What qualifies, what does not, and why it matters.",
     "image": "/og/og-blog-which-benefits-qualify-for-section-125.png",
-    "tags": ["Section 125", "Pre-Tax Benefits", "Employers"]
+    "tags": [
+      "Section 125",
+      "Pre-Tax Benefits",
+      "Employers"
+    ]
   },
   {
     "slug": "premium-only-plan-pop-explained",
@@ -45,7 +69,11 @@
     "date": "2026-06-10",
     "excerpt": "A Premium Only Plan lets employees pay insurance premiums pre-tax. It is the simplest Section 125 plan and often the first one a small employer adopts.",
     "image": "/og/og-blog-premium-only-plan-pop-explained.png",
-    "tags": ["Section 125", "Premium Only Plan", "Employers"]
+    "tags": [
+      "Section 125",
+      "Premium Only Plan",
+      "Employers"
+    ]
   },
   {
     "slug": "how-agents-grow-their-book-with-section-125",
@@ -53,6 +81,34 @@
     "date": "2026-06-10",
     "excerpt": "Adding a Section 125 plan makes the worksite products you already sell easier to place. How agents use pre-tax benefits to win and keep more cases.",
     "image": "/og/og-blog-how-agents-grow-their-book-with-section-125.png",
-    "tags": ["Section 125", "Agents", "Partnership"]
+    "tags": [
+      "Section 125",
+      "Agents",
+      "Partnership"
+    ]
+  },
+  {
+    "slug": "what-employers-get-with-a-section-125-plan",
+    "title": "What Employers Get With a Section 125 Plan",
+    "date": "2026-06-15",
+    "excerpt": "A plain-language look at what a Section 125 cafeteria plan actually delivers: a stronger benefits offering, bundled compliance, and almost no work for your office.",
+    "image": "/og/og-blog-what-employers-get-with-a-section-125-plan.png",
+    "tags": [
+      "Section 125",
+      "Employers",
+      "Pre-Tax Benefits"
+    ]
+  },
+  {
+    "slug": "section-125-plans-by-industry",
+    "title": "Section 125 Plans by Industry: Where They Fit Best",
+    "date": "2026-06-15",
+    "excerpt": "Where a Section 125 cafeteria plan fits best, from manufacturing and senior care to trades and schools, and what it tends to solve in each field.",
+    "image": "/og/og-blog-section-125-plans-by-industry.png",
+    "tags": [
+      "Section 125",
+      "Employers",
+      "Industries"
+    ]
   }
 ]

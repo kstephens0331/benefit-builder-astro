@@ -12,6 +12,7 @@ export type RouteDescriptor = {
 // Location pages (the /locations silo) supply their own descriptors, appended to
 // ROUTES below so the sitemap and OG generators (which loop ROUTES) include them.
 import { locationRouteDescriptors } from "../locations/locations";
+import { industryRouteDescriptors } from "../industries/industries";
 
 const STATIC_ROUTES: RouteDescriptor[] = [
   {
@@ -146,7 +147,11 @@ const STATIC_ROUTES: RouteDescriptor[] = [
   },
 ];
 
-export const ROUTES: RouteDescriptor[] = [...STATIC_ROUTES, ...locationRouteDescriptors()];
+export const ROUTES: RouteDescriptor[] = [
+  ...STATIC_ROUTES,
+  ...industryRouteDescriptors(),
+  ...locationRouteDescriptors(),
+];
 
 export function findRoute(path: string): RouteDescriptor | undefined {
   return ROUTES.find((r) => r.path === path);

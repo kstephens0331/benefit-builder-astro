@@ -1,0 +1,70 @@
+---
+import Base from "../../layouts/Base.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import CTARow from "../../components/CTARow.astro";
+import { webPage, breadcrumbList, itemList } from "../../lib/seo/jsonld";
+import { INDUSTRIES } from "../../lib/industries/industries";
+
+const TITLE = "Section 125 Plans by Industry | Benefit Builder LLC";
+const DESCRIPTION =
+  "Section 125 cafeteria plan administration tailored to the industries we serve, from manufacturing and senior care to trades and schools.";
+const path = "/industries";
+const url = `https://benefitbuilderllc.com${path}`;
+const crumbs = [
+  { name: "Home", href: "/" },
+  { name: "Industries", href: path },
+];
+const breadcrumb = breadcrumbList(crumbs);
+const jsonLd = [
+  webPage({ name: TITLE, description: DESCRIPTION, url, breadcrumb }),
+  itemList(INDUSTRIES.map((i) => ({ name: i.h1, url: `/industries/${i.slug}` }))),
+  breadcrumb,
+];
+---
+
+<Base title={TITLE} description={DESCRIPTION} path={path} image="/og/og-industries.png" jsonLd={jsonLd}>
+  <Breadcrumbs crumbs={crumbs} />
+
+  <section class="relative overflow-hidden border-b border-brand-stone/60 bg-brand-navy py-16">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-sm uppercase tracking-wide text-brand-sand font-semibold">By industry</p>
+      <h1 class="font-heading text-white drop-shadow text-4xl md:text-5xl mt-2">Section 125 Plans Built for Your Industry</h1>
+      <p class="mt-4 max-w-3xl text-white/90 text-lg">
+        We administer Section 125 cafeteria plans for employers across many fields. The plan, enrollment, and compliance
+        are handled the same disciplined way, tuned to how your industry hires, pays, and works.
+      </p>
+      <div class="mt-6">
+        <CTARow primaryLabel="Get a quote" primaryTo="/contact" secondaryTo="/savings-calculator" secondaryLabel="Estimate your plan" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border-b border-brand-stone">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid gap-6 md:grid-cols-2">
+        {
+          INDUSTRIES.map((i) => (
+            <a href={`/industries/${i.slug}`} class="group rounded-lg border border-brand-stone bg-brand-sand/20 p-6 transition hover:border-brand-green hover:bg-brand-sand/40">
+              <h2 class="font-heading text-2xl text-brand-navy">{i.name}</h2>
+              <p class="mt-2 text-brand-charcoal/90">{i.intro}</p>
+              <span class="mt-3 inline-block font-semibold text-brand-green group-hover:underline">See {i.name} plans &rarr;</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-sand/30" aria-label="Explore more">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-heading text-2xl text-brand-navy">Not sure where you fit?</h2>
+      <p class="mt-2 max-w-3xl text-brand-charcoal/90">
+        Any employer that offers benefits and runs payroll can usually use a Section 125 plan. Estimate the impact for
+        your team, or talk to us and we will map it to your workforce.
+      </p>
+      <div class="mt-5">
+        <CTARow primaryLabel="Estimate your plan" primaryTo="/savings-calculator" secondaryTo="/contact" secondaryLabel="Talk to us" align="left" />
+      </div>
+    </div>
+  </section>
+</Base>
