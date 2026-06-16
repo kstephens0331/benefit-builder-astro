@@ -1,21 +1,29 @@
-## Why Durant employers use Section 125
+## Section 125 cafeteria plans for Durant employers
 
-Durant is the seat of Bryan County in southeast Oklahoma, anchored by a steady mix of public and private payrolls. It is home to Southeastern Oklahoma State University, serves as the headquarters of the Choctaw Nation, and supports a broad base of healthcare providers and small businesses. These are stable, payroll-driven employers, exactly the kind of operation where a Section 125 cafeteria plan pays off month after month.
+Durant is the seat of Bryan County in southeast Oklahoma, near the Texas line and Lake Texoma, and it carries a payroll base far larger than its size suggests. The Choctaw Nation is headquartered here and is the city's largest employer, running a headquarters campus, a healthcare system, and the Choctaw Casino and Resort, one of Oklahoma's top visitor destinations. Around that core sit Southeastern Oklahoma State University, the Alliance Health Durant hospital, a Big Lots distribution center, a Commercial Metals Company steel micro-mill, customer-service operations, and a broad base of family-owned small businesses. These are stable, payroll-driven employers, and a Section 125 cafeteria plan gives each of them a practical way to strengthen the benefits they offer and compete for workers. Benefit Builder administers those plans so Durant employers get the benefit without the paperwork burden.
 
-A cafeteria plan lets employees pay for qualified benefits with pre-tax dollars. Those pre-tax elections come out of gross pay before federal income tax, Oklahoma state income tax, and FICA are calculated. For the employee that means higher take-home pay on the same gross wage. For Durant employers it means a direct cut to the employer share of FICA, since the 7.65 percent payroll tax does not apply to the dollars run through the plan. Oklahoma layers a bracketed state income tax (up to 4.75 percent) on top of the federal tax and that 7.65 percent FICA, so the combined savings on each pre-tax dollar add up quickly across a full roster.
+A cafeteria plan lets employees pay for qualified benefits with pre-tax dollars through payroll. The employer offers a structured menu, the employee elects what fits their household, and the elections are documented and processed each pay period. The payoff is a more competitive, more flexible benefits package, which matters in a market where the casino, the hospital, the university, the distribution center, and the mill are all hiring from the same regional labor pool across Bryan, Choctaw, Atoka, and Marshall counties.
 
-The catch for most employers is administration, and that is the part Benefit Builder handles. Bryan County businesses and their neighbors in Calera, Caddo, and Atoka get the tax advantage without taking on the compliance and paperwork burden themselves.
+## Why it fits the Durant economy
+
+Tribal government and gaming. The Choctaw Nation's headquarters, hospital, and resort operations employ thousands in and around Durant. Large rosters like these are where a documented, well-run benefits program pays off, giving the employer a clean way to offer flexible benefits across many job classes.
+
+Education. Southeastern Oklahoma State University and the Durant public schools employ faculty, staff, and support workers who value strong benefits. A cafeteria plan lets education employers round out their package and hold onto experienced people without restructuring base pay.
+
+Healthcare. Alliance Health Durant and the Choctaw Nation health system anchor medical employment for the whole region, drawing patients and staff from across southeast Oklahoma and north Texas. Hospitals and clinics carry big payrolls and recruit constantly for nurses and technicians, so competitive, flexible benefits are a real recruiting tool.
+
+Manufacturing, distribution, and small business. The Commercial Metals micro-mill, the Big Lots distribution center, and the customer-service operations bring industrial and logistics payrolls to town, while Durant's main-street shops, contractors, and service firms round out the base. The same Section 125 structure serves all of them, from a plant floor to a four-person office. See how we tailor plans by sector on our [industries](/industries) page.
 
 ## What Benefit Builder handles for Durant employers
 
-One monthly fee covers the full administrative load: the written plan document, the adoption agreement, salary reduction agreements for each participating employee, annual nondiscrimination testing, payroll coordination so deductions post correctly each cycle, and employee education so workers understand their elections. There is no separate setup charge and no per-document billing.
+One monthly fee covers the full administrative load: the written plan document, the adoption agreement, salary reduction agreements for each participating employee, annual nondiscrimination testing, payroll coordination so deductions post correctly each cycle, and employee education so workers understand their elections. There is no separate setup charge and no per-document billing. A cafeteria plan can carry health, dental, and vision premiums, health and dependent care flexible spending accounts, health savings account contributions, and dependent care assistance on a pre-tax basis. As one factual note, because those elections come out before payroll taxes are figured, the employer's FICA share does not apply to them, which modestly lowers payroll cost. That is a byproduct of running benefits correctly, not the reason to offer the plan.
 
-For the full Oklahoma tax breakdown, including bracket detail and worked savings figures, see [Oklahoma Section 125 details](/locations/oklahoma) and our [compliance overview](/compliance). To estimate what pre-tax benefits could save your business, run the numbers through the [savings calculator](/savings-calculator).
+For the statewide picture and how a plan fits Oklahoma's larger industries, see our [Oklahoma Section 125 overview](/locations/oklahoma) and our [compliance](/compliance) page. To model what a plan would look like for your roster, run the numbers through the [plan calculator](/savings-calculator).
 
-## Who we serve around Durant
+## Working with agents and brokers
 
-Benefit Builder works with education and university payrolls, healthcare providers, tribal employers, and small businesses across Bryan County and the surrounding communities. Whether you run a clinic, a campus department, a tribal program, or a family-owned shop, the same Section 125 structure applies and the same pre-tax benefits flow to your workforce.
+We also work alongside the insurance agents and brokers who already serve Durant and Bryan County employers. Our role is plan administration, not selling coverage, so agents keep their existing relationships and their commissions while we handle the cafeteria plan mechanics behind the benefits they place. Learn how that partnership works on our [employers](/services/employers) page.
 
-We also work alongside the insurance agents and brokers who already serve Durant employers. Our role is plan administration, not selling coverage, so agents keep their existing relationships and their commissions while we handle the cafeteria plan mechanics behind the scenes. Learn how that partnership works on our [brokers page](/services/brokers).
+## Get started
 
-Ready to see what a cafeteria plan would do for your payroll? [Contact Benefit Builder](/contact) and we will map out the setup for your Durant business.
+Ready to see what a cafeteria plan would do for your team? [Contact Benefit Builder](/contact) and we will map out the setup for your Durant business, whether you run a clinic, a campus department, a tribal program, a plant, or a family-owned shop.
