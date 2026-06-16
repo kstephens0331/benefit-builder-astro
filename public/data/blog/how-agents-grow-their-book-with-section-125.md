@@ -2,9 +2,9 @@ Most insurance agents already sell the products that pair naturally with a Secti
 
 ## Pre-tax treatment makes every product an easier yes
 
-When the benefits you present are paid pre-tax, the math changes in your favor. The employee takes home more pay for the same coverage, and the employer lowers its payroll tax on those dollars. A product that looked like a cost a moment ago now comes with a built in tax advantage for both sides of the table.
+When the benefits you present are paid pre-tax, the value changes in your favor. The employee takes home more pay for the same coverage, and the employer strengthens its benefits offering. A product that looked like a cost a moment ago now delivers more value to both sides of the table.
 
-That is a different conversation. Instead of asking an employer to absorb a new expense, you are showing them a way to give employees more value while the business saves on payroll tax. The same election that raises an employee's take-home pay lowers the employer's FICA, which we explain in [how FICA savings work](/blog/how-fica-savings-work-for-employers).
+That is a different conversation. Instead of asking an employer to absorb a new expense, you are showing them a way to give employees more value while strengthening the benefits offering. The same election that raises an employee's take-home pay lowers the employer's FICA, which we explain in [how the FICA effect works](/blog/how-fica-savings-work-for-employers).
 
 ## You keep your commissions
 

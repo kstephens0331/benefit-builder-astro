@@ -1,4 +1,4 @@
-Nondiscrimination testing, usually shortened to NDT, is the part of a Section 125 plan that agents are asked about least and that causes the most year-end stress. The idea behind it is simple: the tax advantages of a cafeteria plan are meant to benefit the whole workforce, not just owners and top earners. The tests confirm that. This guide explains the three core tests in plain terms so you can speak to them with a client.
+Nondiscrimination testing, usually shortened to NDT, is the part of a Section 125 plan that agents are asked about least and that causes the most year-end stress. The idea behind it is simple: the pre-tax benefits of a cafeteria plan are meant to reach the whole workforce, not just owners and top earners. The tests confirm that. This guide explains the three core tests in plain terms so you can speak to them with a client.
 
 ## Why the tests exist
 

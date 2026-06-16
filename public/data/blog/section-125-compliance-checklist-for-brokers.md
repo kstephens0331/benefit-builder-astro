@@ -30,4 +30,4 @@ The documents above only protect the plan if they can be produced on request. A 
 
 Most brokers do not want to own plan documents, run testing, or chase salary reduction forms. That is exactly the work a Section 125 administrator handles. You keep the client relationship and your commissions, and the administrator runs the back office. Benefit Builder does this in-house and provides co-branded materials so your client sees one team. See [how the partnership works](/services/brokers).
 
-If you have a client who could benefit, [contact us](/contact) and we will run a no-cost savings estimate on their roster, or send them to our [savings calculator](/savings-calculator) to see the numbers first.
+If you have a client who could benefit, [contact us](/contact) and we will run a no-cost savings estimate on their roster, or send them to our [plan calculator](/savings-calculator) to see the numbers first.

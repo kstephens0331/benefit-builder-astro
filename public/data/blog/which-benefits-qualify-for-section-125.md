@@ -1,4 +1,4 @@
-A Section 125 plan only saves money on benefits that the tax code actually allows to be paid pre-tax. One of the most common questions employers ask is a simple one: which benefits qualify? This article walks through the categories that can run through a cafeteria plan, the ones that cannot, and why the distinction matters for your payroll tax savings.
+A Section 125 plan only delivers its benefit on items the tax code actually allows to be paid pre-tax. One of the most common questions employers ask is a simple one: which benefits qualify? This article walks through the categories that can run through a cafeteria plan, the ones that cannot, and why the distinction matters.
 
 ## Insurance premiums, the core of most plans
 
@@ -28,8 +28,8 @@ Trying to push a non-qualifying benefit through the plan is not a savings strate
 
 ## Why the list matters for your savings
 
-Every qualifying dollar an employee elects is a dollar removed from the wage base for FICA, which is where the employer savings come from. We explain that mechanism in [how FICA savings work](/blog/how-fica-savings-work-for-employers). The more of an employee's real spending that fits a qualifying category, the more both sides save on the same dollars.
+Every qualifying dollar an employee elects is a dollar removed from the wage base for FICA, which is where the employer savings come from. We explain that mechanism in [how the FICA effect works](/blog/how-fica-savings-work-for-employers). The more of an employee's real spending that fits a qualifying category, the more both sides save on the same dollars.
 
-That is the practical takeaway. A well designed plan maps the benefits your employees actually use to the categories the code allows, so the savings are maximized and the plan stays compliant. Our [compliance overview](/compliance) covers what a valid plan requires, and you can estimate the impact for your group with the [savings calculator](/savings-calculator).
+That is the practical takeaway. A well designed plan maps the benefits your employees actually use to the categories the code allows, so the savings are maximized and the plan stays compliant. Our [compliance overview](/compliance) covers what a valid plan requires, and you can estimate the impact for your group with the [plan calculator](/savings-calculator).
 
 If you want help mapping your benefits to the qualifying categories, [contact us](/contact) and we will walk through your specific setup.
