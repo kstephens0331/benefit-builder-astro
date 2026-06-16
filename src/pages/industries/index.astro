@@ -44,10 +44,21 @@ const jsonLd = [
       <div class="grid gap-6 md:grid-cols-2">
         {
           INDUSTRIES.map((i) => (
-            <a href={`/industries/${i.slug}`} class="group rounded-lg border border-brand-stone bg-brand-sand/20 p-6 transition hover:border-brand-green hover:bg-brand-sand/40">
-              <h2 class="font-heading text-2xl text-brand-navy">{i.name}</h2>
-              <p class="mt-2 text-brand-charcoal/90">{i.intro}</p>
-              <span class="mt-3 inline-block font-semibold text-brand-green group-hover:underline">See {i.name} plans &rarr;</span>
+            <a href={`/industries/${i.slug}`} class="group overflow-hidden rounded-lg border border-brand-stone bg-white transition hover:border-brand-green hover:shadow-md">
+              <img
+                src={`/images/industries/thumb-${i.slug}.webp`}
+                alt={`A ${i.name.toLowerCase()} team at work`}
+                width="600"
+                height="338"
+                loading="lazy"
+                decoding="async"
+                class="h-40 w-full object-cover"
+              />
+              <div class="p-6">
+                <h2 class="font-heading text-2xl text-brand-navy">{i.name}</h2>
+                <p class="mt-2 text-brand-charcoal/90">{i.intro}</p>
+                <span class="mt-3 inline-block font-semibold text-brand-green group-hover:underline">See {i.name} plans &rarr;</span>
+              </div>
             </a>
           ))
         }
