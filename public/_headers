@@ -1,11 +1,18 @@
-﻿/*
-  Security headers for Cloudflare Pages
+﻿# NOTE: this site is served on production by Caddy (client-caddy container on VA,
+# see /home/stephens-code2/docker/client-caddy/Caddyfile), which does NOT read this
+# file. Caddy does not parse Netlify/Cloudflare-Pages-style _headers files - the
+# headers below are enforced via a `header {}` block in that Caddyfile instead.
+# This file is kept correct anyway in case the site is ever moved to a host that
+# does honor it (Cloudflare Pages, Netlify, or similar) - if that happens, keep it
+# in sync with the actual page's third-party scripts (Ahrefs analytics + GA4).
+/*
+  Security headers
 */
-https://benefitbuilder.com/*
+https://benefitbuilderllc.com/*
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  # CSP for SPA + self-hosted fonts + JSON-LD + Turnstile + Resend
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://api.resend.com; font-src 'self' data:; frame-ancestors 'none';
+  # CSP for Astro static site + self-hosted fonts + JSON-LD + Ahrefs Web Analytics + GA4
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://analytics.ahrefs.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.googletagmanager.com; connect-src 'self' https://analytics.ahrefs.com https://www.google-analytics.com https://analytics.google.com; font-src 'self' data:; frame-ancestors 'none';
